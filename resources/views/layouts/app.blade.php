@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/apphome.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -50,14 +50,16 @@
                 <li><a href="">Lamparas</a></li>
             </ul>
         </li>
-        <li>
-            <img src="imagenes/logo.png" id="imglogo"  alt="logo de la pagina web"  />
-        </li>
+
 
     </div>
     <div>
+        <li>
+            <a href="{{ url('/') }}"><img src="imagenes/logo.png" id="imglogo"  alt="logo de la pagina web"  /></a>
+        </li>
+    </div>
 
-
+    <div>
 
 
 
@@ -69,56 +71,54 @@
 
     <div>
 
-      <!---  <a class="nav-link" href="{{ route('login') }}"><img src="imagenes/iconos/perfil2.png" id="imguser" alt="Icono de usuario" /></a> --->
-          @guest
-              <li class="nav-item">
-                  <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
-              </li>
-              @if (Route::has('register'))
-                  <li class="nav-item">
-                      <a class="nav-link" href="{{ route('register') }}">{{ __('Crear cuenta') }}</a>
-                  </li>
-              @endif
-          @else
-              <li class="nav-item dropdown">
-                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                      {{ Auth::user()->name }} <span class="caret"></span>
-                  </a>
+    <!---  <a class="nav-link" href="{{ route('login') }}"><img src="imagenes/iconos/perfil2.png" id="imguser" alt="Icono de usuario" /></a> --->
+        @guest
 
-                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="{{ route('logout') }}"
-                         onclick="event.preventDefault();
+            <ul class="menulogin">
+                <div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
+                    </li>
+                </div>
+
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('user.index') }}">
+                                {{ __('Mi perfil') }}
+                            </a>
+
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                          {{ __('Cerrar sesión') }}
-                      </a>
+                                {{ __('Cerrar sesión') }}
+                            </a>
 
-                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                          @csrf
-                      </form>
-                  </div>
-              </li>
-          @endguest
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
 
+                        </div>
+                    </li>
+            </ul>
 
-        <img src="imagenes/iconos/carrito.png" id="imgcarro" alt="Icono del carrito" />
-
+        @endguest
     </div>
 
+
+    <div> <img src="imagenes/iconos/carrito.png" id="imgcarro" alt="Icono del carrito" /></div>
 
 
 </div>
 
 
-
-
-
-
-
-
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+<main class="py-4">
+    @yield('content')
+</main>
 
 </body>
 </html>

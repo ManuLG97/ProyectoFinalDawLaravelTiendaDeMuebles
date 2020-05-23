@@ -5,7 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Iniciar sesión') }}</div>
+                <div class="card-header">{{ __('Iniciar sesión') }}<img src="imagenes/unnamed.png" id="boli" alt=""/>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -23,6 +24,7 @@
                                     </span>
                                 @enderror
                             </div>
+
                         </div>
 
                         <div class="form-group row">
@@ -51,6 +53,10 @@
                             </div>
                         </div>
 
+                        @if (Route::has('register'))
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Crear cuenta') }}</a>
+                        @endif
+
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -65,10 +71,12 @@
 
                             </div>
                         </div>
+
                     </form>
-                </div>
+            </div>
             </div>
         </div>
     </div>
-</div>
+
+
 @endsection

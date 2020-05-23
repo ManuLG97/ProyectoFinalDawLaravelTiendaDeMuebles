@@ -1,21 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header"></div>
-
-                <div class="card-body">
-
-                        @if(session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-
-                     @endif
-
 
 
                             <div id="noticias">
@@ -81,7 +66,7 @@
                                     Somos la empresa Modern Forniture nos dedicamos a la venta de muebles online y en tienda desde 1997 para mas información o para contactar pulsa en el icono de contacto de aquí abajo
                                 </div>
                                 <div class="centrar">
-                                    <img src="imagenes/iconos/phonebook.png" class="contactoimg" alt="Icono para ir a la pagina contacto"/>
+                                    <img src="imagenes/iconos/phonebook.png"  alt="Icono para ir a la pagina contacto"/>
                                 </div>
                             </div>
 
@@ -98,7 +83,5 @@
 
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+
 @endsection

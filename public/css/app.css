@@ -79,6 +79,12 @@ body {
   outline: 0 !important;
 }
 
+#boli{
+    width: 2vw;
+    height: 3vw;
+
+}
+
 hr {
   box-sizing: content-box;
   height: 0;
@@ -742,6 +748,13 @@ pre code {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
+
+
+}
+
+.col-md-8{
+    top: 200px;
+
 }
 
 .col {
@@ -4473,6 +4486,7 @@ input[type=button].btn-block {
 
 .nav-tabs .nav-item {
   margin-bottom: -1px;
+
 }
 
 .nav-tabs .nav-link {
@@ -4497,6 +4511,7 @@ input[type=button].btn-block {
   color: #495057;
   background-color: #f8fafc;
   border-color: #dee2e6 #dee2e6 #f8fafc;
+    display: inline-block;
 }
 
 .nav-tabs .dropdown-menu {
@@ -10892,6 +10907,7 @@ a.text-dark:focus {
   }
 
   .container {
+
     min-width: 992px !important;
   }
 

@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\User;
 use App\Role;
+use Illuminate\Support\Facades\Hash;
 class UserTableSeeder extends Seeder
 {
     public function run()
@@ -14,7 +15,7 @@ class UserTableSeeder extends Seeder
         $user->telefon= '642887788';
         $user->address = 'Av.Apelles Mestres, nr.116';
         $user->email = 'user@example.com';
-        $user->password = bcrypt('secret');
+        $user->password = Hash::make('secret');
         $user->save();
         $user->roles()->attach($role_user);
         $user = new User();
@@ -22,7 +23,7 @@ class UserTableSeeder extends Seeder
         $user->telefon= '642777777';
         $user->address = 'Av.Apelles Mestres, nr.116';
         $user->email = 'admin@example.com';
-        $user->password = bcrypt('secret');
+        $user->password = Hash::make('secret');
         $user->save();
         $user->roles()->attach($role_admin);
     }
