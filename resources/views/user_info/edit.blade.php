@@ -20,7 +20,7 @@
                 </datalist>
             @endforeach
             <br/>
-            <input class="save-user" type="submit" class="btn btn-primary" value="Salvar" onclick="if(!confirm('¿Estas segur/o que quieres modificar?')){return false;};">
+            <input class="save-user" type="submit" class="btn btn-primary" value="Guardar cambios" onclick="if(!confirm('¿Estas segur/o que quieres modificar?')){return false;};">
             <br/>
             <br/>
         </form>

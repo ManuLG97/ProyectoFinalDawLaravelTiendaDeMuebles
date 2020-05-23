@@ -66,7 +66,7 @@
                                     Somos la empresa Modern Forniture nos dedicamos a la venta de muebles online y en tienda desde 1997 para mas información o para contactar pulsa en el icono de contacto de aquí abajo
                                 </div>
                                 <div class="centrar">
-                                    <img src="imagenes/iconos/phonebook.png"  alt="Icono para ir a la pagina contacto"/>
+                                    <a class="contacto" href="{{ url('contact/contacto') }}"> <img src="imagenes/iconos/phonebook.png"  alt="Icono para ir a la pagina contacto"/></a>
                                 </div>
                             </div>
 

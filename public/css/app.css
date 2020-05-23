@@ -4986,7 +4986,9 @@ input[type=button].btn-block {
 .navbar-dark .navbar-text a:focus {
   color: #fff;
 }
-
+.contactomodern{
+  margin-top: 10vw;
+}
 .card {
   position: relative;
   display: flex;

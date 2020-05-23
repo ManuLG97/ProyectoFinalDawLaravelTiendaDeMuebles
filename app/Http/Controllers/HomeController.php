@@ -23,8 +23,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
 
-       // return view('home',compact('home'));
+         return view('home');
+
+     //  return view('home',compact('home'));
     }
+    public function show()
+    {
+
+        // return view('home',compact('home'));
+    }
+
+    public function contactar()
+    {
+
+        return view('contact.contacto');
+    }
+
 }

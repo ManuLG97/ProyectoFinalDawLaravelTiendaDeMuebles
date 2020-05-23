@@ -25,7 +25,7 @@
 <div id="menu">
     <div id="iconomenu">
 
-        <li><img src="imagenes/iconos/menu.png" id="imgmenu" alt="Icono para abrir el menu" />
+        <li><img src="../imagenes/iconos/menu.png" id="imgmenu" alt="Icono para abrir el menu" />
             <ul>
                 <li><a href="">Inicio</a></li>
                 <li><a href="">Oferta</a></li>
@@ -55,7 +55,7 @@
     </div>
     <div>
         <li>
-            <a href="{{ url('/') }}"><img src="imagenes/logo.png" id="imglogo"  alt="logo de la pagina web"  /></a>
+            <a href="{{ url('/') }}"><img src="../imagenes/logo.png" id="imglogo"  alt="logo de la pagina web"  /></a>
         </li>
     </div>
 
@@ -110,7 +110,7 @@
     </div>
 
 
-    <div> <img src="imagenes/iconos/carrito.png" id="imgcarro" alt="Icono del carrito" /></div>
+    <div> <img src="../imagenes/iconos/carrito.png" id="imgcarro" alt="Icono del carrito" /></div>
 
 
 </div>
