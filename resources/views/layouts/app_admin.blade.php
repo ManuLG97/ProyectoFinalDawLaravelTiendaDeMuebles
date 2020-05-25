@@ -27,7 +27,7 @@
 
         <li><img src="/imagenes/iconos/menu.png" id="imgmenu" alt="Icono para abrir el menu" />
             <ul>
-                <li><a href="{{ url('/') }}">Inicio</a></li>
+                <li><a href="{{ url('admin/admin_home') }}">Inicio</a></li>
                 <li><a href="">Oferta</a></li>
                 <li><a href="">Novedades</a></li>
                 <li><a href="">Bajan de precio</a></li>
@@ -55,7 +55,7 @@
     </div>
     <div>
         <li>
-            <a href="{{ url('/') }}"><img src="/imagenes/logo.png" id="imglogo"  alt="logo de la pagina web"  /></a>
+            <a href="{{ url('admin/admin_home') }}"><img src="/imagenes/logo.png" id="imglogo"  alt="logo de la pagina web"  /></a>
         </li>
     </div>
 
@@ -92,6 +92,20 @@
                                 {{ __('Mi perfil') }}
                             </a>
 
+                                <a class="dropdown-item"  href="{{route('producto.create')}}">
+                                {{ __('Crear producto') }}
+                            </a>
+
+
+                                <a class="dropdown-item" href="{{url('products/all_products')}}">
+                                    {{ __('Ver productos') }}
+                                </a>
+
+
+
+                                <a class="dropdown-item" href="{{ route('admin.index') }}">
+                                {{ __('Ver usuarios') }}
+                            </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

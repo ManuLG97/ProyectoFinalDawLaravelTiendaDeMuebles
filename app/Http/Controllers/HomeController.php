@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Producto;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,11 +25,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-         return view('home');
-
-     //  return view('home',compact('home'));
+        $user=auth()->user()->id;
+        $user_info=User::find($user);
+        $role=$user_info->hasRole("admin");
+        if($role){
+            $admin=Producto::all();
+            return view('admin.admin_home',compact('admin'));
+        }else{
+            $home=Producto::all();
+        }
+        return view('user.user_home',compact('home'));
     }
+       //  return view('home');
+       //  return view('home',compact('home'));
+
+
     public function show()
     {
 
@@ -37,7 +49,7 @@ class HomeController extends Controller
     public function contactar()
     {
 
-        return view('contact.contacto');
+        return view('contact');
     }
 
 }

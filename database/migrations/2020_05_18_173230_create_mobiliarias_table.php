@@ -21,7 +21,7 @@ class CreateMobiliariasTable extends Migration
             $table->string('adresa');
             $table->bigInteger('telefono')->unsigned();
             $table->string('email');
-            $table->foreign('id_producto')->references('id_producto')->on('productos')->onDelete('cascade');
+            $table->foreign('id_producto')->references('id')->on('productos')->onDelete('cascade');
 
         });
     }

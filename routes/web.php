@@ -21,6 +21,14 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/contact/contacto','HomeController@contactar');
+
+
+Route::group(['middleware' => ['web']], function () {
+return view('products.all_products');
+});
+
+Route::get('/contact','HomeController@contactar');
 
 
 
@@ -28,4 +36,43 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('user','UserController')->middleware('auth','role:user');
-Route::get('/contact/contacto','HomeController@contactar');
+
+
+Route::get('/admin/admin_home','HomeController@index');
+
+
+Route::resource('admin','AdminController')->middleware('auth','role:admin');
+
+Route::resource('products','ProductoController')->middleware('auth','role:admin');
+
+
+Route::get('create', 'ProductoController@create')->middleware('auth','role:admin');
+// agregar nombre
+Route::get('create', 'ProductoController@create')
+    ->name('producto.create')->middleware('auth','role:admin');//con este llamas en la vista
+Route::resource('producto', 'ProductoController')->middleware('auth','role:admin');
+
+
+Route::get('show', 'ProductoController@show')->middleware('auth','role:admin');
+// agregar nombre
+Route::get('products.all_products', 'ProductoController@show')
+    ->name('producto.show')->middleware('auth','role:admin');//con este llamas en la vista
+Route::resource('producto', 'ProductoController')->middleware('auth','role:admin');
+
+
+Route::get('index', 'AdminController@index')->middleware('auth','role:admin');
+// agregar nombre
+Route::get('admin.admin_home', 'AdminController@index')
+    ->name('admin.index')->middleware('auth','role:admin');//con este llamas en la vista
+Route::resource('admin', 'AdminController')->middleware('auth','role:admin');
+
+
+
+Route::get('products.all_products', function () {
+    return view('products.all_products', compact('products'))->middleware('auth','role:admin');
+});
+
+
+Route::resource('contacto','ContactoController')->middleware('auth','role:user');
+Route::resource('contacto','ContactoController')->middleware('auth','role:admin');
+//Route::resource('contacto','HomeController@contactar');

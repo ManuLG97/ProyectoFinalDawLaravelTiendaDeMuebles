@@ -5,20 +5,24 @@
 body {
     height: 100%;
     background-color: white ;
-    font-size:2.9vw;
+    font-size:1.0vw;
     margin:0px;
     padding:0px;
     font-family: 'Raleway', sans-serif;
 }
 
+#contactotitulo {
+    font-weight: bolder;
+}
 
 #menu {
     background-color:#a5c0bb;
     width:100%;
     font-size:1.0vw;
-    height: 6vw;
+    height: 3.2vw;
     display: grid;
-    grid-gap: 11vw;
+    grid-gap: 5vh;
+    grid-template-rows: repeat(1,8%);
     grid-template-columns: repeat(5, 1fr);
     grid-auto-flow: row dense;
     justify-items: start;
@@ -106,8 +110,8 @@ ul, ol {
 #imgmenu {
 
     grid-row-start: 2;
-    width: 3vw;
-    padding-top:2vw;
+    width: 2vw;
+
     padding-left: 1vw;
 }
 
@@ -120,18 +124,18 @@ ul, ol {
 
 #imglogo {
     grid-row-start: 1;
-
-    width: 5vw;
+    height: 3vw;
+    width:5vw;
 }
 
 #imgcarro {
-    padding-top: 2vw;
-    width: 4vw;
+
+    width: 3vw;
     float: right;
 }
 
 #searchinput {
-    font-size:1.4vw;
+    font-size:1.2vw;
     border-radius:60px;
     margin-top:1vh;
     outline:none;}
@@ -139,6 +143,18 @@ ul, ol {
 .imagenessugeridas {
     width:11vw;
 
+}
+
+#contacto {
+    margin-top: 5vw;
+    text-align: center;
+    font-size:1.7vw;
+}
+
+#mapa {
+    height:30vw;
+    width:50vw;
+    margin-bottom: 4vw;
 }
 
 #noticias{
@@ -181,7 +197,7 @@ ul, ol {
     width: 45vw;
 }
 
-.oferta {width: 20vw; display:inline-block;padding-left: 2%; margin-left:5%; margin-top:2%; border: 3px solid #a5c0bb}
+.oferta {width: 15vw; display:inline-block;padding-left: 2%; margin-left:5%; margin-top:2%; border: 3px solid #a5c0bb}
 
 .vermas {width: 10vw; display:inline-block;padding-left: 10%;}
 
@@ -191,22 +207,28 @@ ul, ol {
     display:inline-block;
 
 
-
+    font-size:2.0vw;
 }
 
 #sobrenosotros {
 
     max-width:100%;
     margin-top:2%;
+
+    font-size:1.7vw;
     text-align: center;
 
 
 }
 
+#sobrenostrostitulo {
+
+}
+
 
 #sobrenosotros img {
-    margin-bottom:5vw;
-    width:3vw;
+    margin-bottom:4vw;
+    width:2vw;
     margin-top:2vw;
 
 
@@ -215,7 +237,7 @@ ul, ol {
 .titulogrande {
 
     text-align: center;
-    padding-top:2vw;
+    padding-top:3vw;
     text-decoration: underline;
     font-size:1.9vw;
 }
@@ -243,7 +265,7 @@ ul, ol {
 }
 
 footer {
-    min-height: 3vh;
+    min-height: 2vh;
     background-color: #a5c0bb;
     width: 100%;
     position: fixed;
@@ -256,7 +278,7 @@ footer {
 
 footer img {
     float:right;
-    width:2vw;
+    width:1vw;
 }
 
 
@@ -264,17 +286,18 @@ footer img {
 #titulo {
 
     padding-left:5%;
-    font-size:3.0vw;
+    font-size:1.4vw;
     padding-top: 1vw;
 }
 
-
+a:hover {
+    text-decoration: underline;color:black;
+}
 
 .centrar {
     text-align: center;
-    padding-top: 3vh;
+    padding-top: 2vh;
 }
-
 
 .centrarcontacto {
 
@@ -285,115 +308,349 @@ footer img {
 
 }
 
+#perfil {
+    margin-bottom: 5vw;
+}
+
+.botonverde {
+    margin-top:auto;
+    width:20vw;
+    background-color:#a5c0bb;
+    text-decoration: none;
+    padding:1vw;
+    font-size: 1.5vw;
+    color:black;
+    text-align: center;
+    margin-bottom: 2vw;
+}
+
+.botonverde:hover {
+    text-decoration:none;
+}
+
+
+.botongris {
+    margin-top:auto;
+    width:14vw;
+    background-color:#e1e1e1;
+    text-decoration: none;
+    padding:1vw;
+    font-size: 1.5vw;
+    color:black;
+    text-align: center;
+    margin-bottom: 2vw;
+}
+
+.form-edit-user {
+    text-align: center;
+    padding-top: 1vh;
+
+
+
+}
+
+
+.bordesformulario{border: solid 3px #a5c0bb;}
+
+.centrar_perfil {
+    text-align: center;
+    padding-top: 1vh;
+}
+.table_info {width: 100%;}
+
+
 /* MEDIA QUERYS */
+
+
+
+@media (max-width: 2000px) {
+
+    body {font-size:1.1vw;}
+
+    #imglogo {
+
+    }
+
+    #mapa {
+        height:50vw;
+        width:70vw;
+        margin-bottom: 4vw;
+    }
+
+    #menu {
+
+        grid-gap:4.8vw;
+        font-size: 1.1vw;
+    }
+
+    #imgmenu {
+        padding-top:1vw;
+    }
+
+    footer img {
+        width:2vw;
+    }
+
+    #imgcarro {
+        width: 2vw;
+
+    }
+
+    #comprassugeridas {
+        font-size: 1.1vw;
+    }
+
+    #sobrenosotros {
+        font-size: 1.1vw;
+
+    }
+
+    #sobrenosotros  img {
+        margin-top: 1vw;
+        width:3vw;
+    }
+
+
+}
+
+
+@media (max-width: 1200px) {
+
+    body {
+        background-color: red;
+        font-size: 1.5vw;
+    }
+
+    #menu {
+        height: 3.5vw;
+        grid-gap: 5.3vw;
+
+
+    }
+
+    #sobrenosotros {font-size:1.9vw;}
+    #sobrenosotros img {width:6vw}
+    #comprassugeridas {font-size:1.9vw;}
+}
+
 
 @media (max-width: 1000px) {
 
-    body {background-color: red;}
+    body {background-color: blue;}
+
+    .titulogrande {
+        font-size:4.5vw;
+    }
+
+    #perfil {
+        font-size:2.9vw;
+    }
 
     #imglogo {
-        width: 6vw;
+        height: 3.9vw;
+        width:7vw;
     }
+
+    footer img {
+        width:4vw;
+    }
+
 
     #menu {
-        height: 7vw;
+        height: 3.9vw;
+        grid-gap:5.5vw;
+        font-size: 1.1vw;
     }
 
+    .botonverde {
+        font-size:2.4vw;
+    }
 }
 
-@media (max-width: 890px) {
 
-    body {background-color: yellow;}
+@media (max-width: 850px) {
+
+    body {background-color: grey;}
 
     #imglogo {
-        width: 8vw;
+
+        height: 6.2vw;
+        width:8vw;
     }
 
-    #imgmenu {
+    #imgmenu{
         margin-top:1vw;
-    }
-
-    #menu {
-        height: 9vw;
-        font-size: 1.8vw;
-    }
-
-    #noticias {
-
-        margin-top: 9vw;
-
-    }
-}
-
-
-@media (max-width: 570px) {
-
-    body {background-color: green;}
-
-    #imglogo {
-        width: 12vw;
-    }
-
-    #menu {
-        height: 13vw;
-        grid-gap:4.8vw;
-        font-size: 1.9vw;
-    }
-
-    footer img {
-        width:5vw;
+        height: 3vw;
+        width: 3vw;
     }
 
     #imgcarro {
+        height: 5vw;
         width: 4vw;
-        margin-top:3vw;
-    }
-
-
-}
-
-
-@media (max-width: 550px) {
-
-    body {background-color: greenyellow;}
-
-    #imglogo {
-        width: 16vw;
-    }
-
-    #imgmenu {
-        margin-top:2vw;
-        width: 5vw;
-    }
-
-    #imgcarro {
-        width: 5vw;
-        margin-top:2vw;
     }
 
     #menu {
-        height:16vw;
-
-        font-size: 2.5vw;
-    }
-
-    footer img {
-        width:5vw;
+        height: 6.2vw;
+        grid-gap:10.5vw;
+        font-size: 1.3vw;
     }
 
     #searchinput {
-        margin-top:2vw;
-        height: 4vw;
+        font-size:1.5vw;
+        border-radius:60px;
+        margin-top:1vh;
+        outline:none;}
+
+    .botonverde {
+        font-size:2.5vw;
     }
 
-    #sobrenosotros img {
-        width:10vw;
+
+}
+
+
+
+@media (max-width: 770px) {
+
+    body {background-color: red;font-size:2.5vw;}
+
+
+
+    #imglogo {
+
+        height: 6.2vw;
+        width:8vw;
     }
 
-    #noticias {
+    #imgmenu{
+        margin-top:1vw;
+        height: 3vw;
+        width: 3vw;
+    }
 
-        margin-top: 12vw;
+    #imgcarro {
+        height: 5vw;
+        width: 4vw;
+    }
 
+    #menu {
+        height: 6.2vw;
+        grid-gap:10.5vw;
+        font-size: 1.9vw;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 0rem 1rem;
+    }
+
+    .botongris {
+        font-size:2.2vw;
+        width:20vw;
+    }
+
+    #searchinput {
+        font-size:1.5vw;
+        border-radius:60px;
+        margin-top:1vh;
+        outline:none;}
+}
+
+@media (max-width: 500px) {
+
+    body {
+        background-color: skyblue;
+    }
+
+
+
+    #menu {
+        height: 8vw;
+        grid-gap:5vw;
+        font-size: 2.3vw;
+    }
+
+    #imgmenu {
+        height:4vw;
+        width:5vw;
+    }
+    #imglogo{
+        height: 8vw;
+        width:9vw;
+    }
+    #sobrenosotros {font-size:2.9vw;}
+    #sobrenosotros img {width:9vw}
+    #comprassugeridas {font-size:2.9vw;}
+    #titulo {font-size:3.1vw;}
+    .oferta {
+        width:20vw;
+    }
+
+    #searchinput {
+        font-size:1.8vw;
+        border-radius:60px;
+        margin-top:1vh;
+        outline:none;}
+
+    .titulogrande {
+        font-size:8.9vw;
+    }
+
+    #perfil {
+        font-size:4.5vw;
+    }
+
+    .botonverde {
+        font-size:5vw;
+    }
+}
+
+@media (max-width: 400px) {
+    body {background-color: #1d643b; ;  font-size:3.2vw;}
+
+    footer img {
+        width: 7vw;
+    }
+
+    .botonverde {
+        font-size:5.5vw;
+    }
+
+    #menu {
+        height: 10vw;grid-gap:2vw;
+    }
+
+    #imglogo {
+        height: 10vw;
+    }
+
+
+
+    #searchinput {
+        font-size:2.7vw;
+        border-radius:60px;
+        margin-top:0.2vh;
+        outline:none;}
+    #imgnoticiasuno {
+        margin: 10px;
+        width: 55vw;
+        height: 45vw;
+    }
+
+    #imgnoticiasdos {
+        margin: 10px;
+        width: 55vw;
+        height: 45vw;
+    }
+
+    #imgmenu {
+        height:5vw;
+        width:6vw;
+    }
+
+    .botongris {
+        font-size:3.9vw;
+        width:40vw;
     }
 
 }

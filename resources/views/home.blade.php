@@ -1,6 +1,6 @@
-@extends('layouts.app')
+                @extends('layouts.app')
 
-@section('content')
+                @section('content')
 
 
                             <div id="noticias">
@@ -10,6 +10,7 @@
                                 <img src="imagenes/mueble-salon.jpg" id="imgnoticiasdos"   alt=""/>
 
                             </div>
+
 
                             <div id="comprassugeridas">
                                 <div id="titulo"> Ofertas </div>
