@@ -103,7 +103,7 @@
 
 
 
-                                <a class="dropdown-item" href="{{ route('admin.index') }}">
+                                <a class="dropdown-item" href="{{ route('admin.users') }}">
                                 {{ __('Ver usuarios') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"

@@ -64,7 +64,7 @@ class ProductoController extends Controller
                 'fragil'=>$request->fragil,
                 'foto'=>$path
             ]);
-            return view('admin.admin_home',compact('products','user'));
+            return view('products.all_products',compact('products','user'));
         }
     }
 
@@ -93,7 +93,7 @@ class ProductoController extends Controller
     {
         $products=Producto::find($id);
         $users=User::all();
-        return view('products.edit',compact('products','users'));
+        return view('products.edit_product',compact('products','users'));
     }
 
     /**
@@ -105,34 +105,52 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user=auth()->user()->id;
-        $products= Producto::all();
-        $user_info=User::find($user);
-        $role=$user_info->hasRole("admin");
-        if($role){
-            $property=Producto::find($id);
-            $property->update(['description'=>$request->description,
-                'price'=>$request->price,
+      $user=auth()->user()->id;
+        if($request->has('foto')){
+            $path=$request->file('foto')->store('foto','public');
+        }else{
+            $path="";
+                }
 
-                'nombre_producto'=>$request->nombre_producto,
-                'marca'=>$request->marca,
-                'tipo_mueble'=>$request->tipo_mueble,
-                'description'=>$request->description,
-                'dimensiones'=>$request->dimensiones,
-                'volum'=>$request->volum,
-                'oferta'=>$request->oferta,
-                'cantidad'=>$request->cantidad,
-                'precio_sin_montaje'=>$request->precio_sin_montaje,
-                'precio_con_montaje'=>$request->precio_con_montaje,
-                'fragil'=>$request->fragil,
-               // 'foto'=>$request->$path
+               $products=Producto::find($id);
+               if($path!=""){
+                   $products->update([
+                       'nombre_producto'=>$request->nombre_producto,
+                       'marca'=>$request->marca,
+                       'tipo_mueble'=>$request->tipo_mueble,
+                       'descripcion'=>$request->descripcion,
+                       'dimensiones'=>$request->dimensiones,
+                       'volum'=>$request->volum,
+                       'oferta'=>$request->oferta,
+                       'cantidad'=>$request->cantidad,
+                       'precio_sin_montaje'=>$request->precio_sin_montaje,
+                       'precio_con_montaje'=>$request->precio_con_montaje,
+                       'fragil'=>$request->fragil,
+                       'foto'=>$path
 
+                   ]);
+               }else{
+                   $products->update([
+                       'nombre_producto'=>$request->nombre_producto,
+                       'marca'=>$request->marca,
+                       'tipo_mueble'=>$request->tipo_mueble,
+                       'descripcion'=>$request->descripcion,
+                       'dimensiones'=>$request->dimensiones,
+                       'volum'=>$request->volum,
+                       'oferta'=>$request->oferta,
+                       'cantidad'=>$request->cantidad,
+                       'precio_sin_montaje'=>$request->precio_sin_montaje,
+                       'precio_con_montaje'=>$request->precio_con_montaje,
+                       'fragil'=>$request->fragil,
+                       'foto'=>$path
 
-                // 'photo'=>$request->photo
-            ]);
-            return view('products.admin_index',compact('products','user'));
+                   ]);
+               }
+    //   return redirect()->route('products.all_products');
 
-        }
+       //  return view('products.all_products',compact('products','user'));
+          return view('products.all_products',compact('products','user'));
+
     }
 
     /**
@@ -143,16 +161,11 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        $user=auth()->user()->id;
-        $user_info=User::find($user);
-        $role=$user_info->hasRole("admin");
-        if($role){
-            $product=Producto::find($id);
-            $product->delete();
-            $user=auth()->user()->id;
-            $products= Producto::all();
-            return view('products.admin_index',compact('products','user'));
+        Producto::destroy($id);
 
-        }
+        // return redirect()->route('products.all_products')->with('success','Registro actualizado satisfactoriamente');
+        return view('products.all_products')->with('success','Registro actualizado satisfactoriamente');
+
+        //}
     }
 }

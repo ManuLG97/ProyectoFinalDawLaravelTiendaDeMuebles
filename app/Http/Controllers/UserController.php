@@ -13,18 +13,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        /*$usuario=auth()->user()->id;
-        $user= User::all();
-        return view('user.info',compact('user','usuario')); }*/
-
         $usuario=auth()->user()->id;
         $user_info=User::find($usuario);
+
+
         $role=$user_info->hasRole("admin");
         if($role){
             $user=User::all();
             return view('admin.info',compact('user','usuario'));
         }else{
             $user=User::all();
+
         }
         return view('user.info',compact('user','usuario'));
 
@@ -70,30 +69,13 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-       /* $usuario=User::find($id);
-        $user=User::all();
-        return view('user.edit',compact('user','usuario'));
-*/
-
-      /*         $usuario=auth()->user()->id;
-        $user_info=User::find($usuario);
-        $role=$user_info->hasRole("admin");
-        if($role){
-            $user=User::all();
-            return view('admin.info',compact('user','usuario'));
-        }else{
-            $user=User::all();
-        }
-        return view('user.info',compact('user','usuario')); */
-
         $id_user=auth()->user()->id;
         $user_info=User::find($id_user);
-     //   $id_user=$user_info;
         $users=User::find($id);
         $role=$user_info->hasRole("admin");
         if($role){
             $user=User::all();
-            return view('admin.edit',compact('user','id_user','users'));
+            return view('admin.edit_admin',compact('user','id_user','users'));
         }else{
             $user=User::all();
         }
@@ -109,12 +91,12 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user=auth()->user()->id;
+      $user=auth()->user()->id;
         $user_info=User::find($user);
         $role=$user_info->hasRole("admin");
         if($role){
-            $usuario = User::find($id);
-            $usuario->update(['name' => $request->name,
+            $users = User::find($id);
+            $users->update(['name' => $request->name,
                 'telefon' => $request->telefon,
                 'address' => $request->address,
                 'email' => $request->email,
@@ -122,10 +104,11 @@ class UserController extends Controller
                 'password' => Hash::make($request->password),
 
             ]);
+
             return redirect()->route('admin/admin_home');
         }else{
-            $usuario = User::find($id);
-            $usuario->update(['name' => $request->name,
+            $users = User::find($id);
+            $users->update(['name' => $request->name,
                 'telefon' => $request->telefon,
                 'address' => $request->address,
                 'email' => $request->email,
@@ -133,8 +116,10 @@ class UserController extends Controller
                 'password' =>Hash::make($request->password),
 
             ]);
+
         }
         return redirect()->route('home');
+
     }
 
     /**

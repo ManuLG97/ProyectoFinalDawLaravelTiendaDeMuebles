@@ -6,37 +6,54 @@
     <div class="col-lg-12">
 
         <h1 class="my-5">Productos</h1>
-        <button class=""><a href="{{route('producto.create')}}">Nuevo producto</a></button>
+        @if($message=\Illuminate\Support\Facades\Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{$message}}</p>
+            </div>
+        @endif
 
-        <br/>
-        <table class="table">
+        <table  class="table">
             <thead>
+           <tr>
+               <th><h4>Lista productos</h4></th>
+               <th></th> <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+               <th><button class="btn-primaryregistrar botonproductos"><a href="{{route('producto.create')}}">Nuevo producto</a></button>
+               </th>
+           </tr>
+            <?php
+            $products=\App\Producto::all();
+            ?>
 
-            @foreach($products as $product)
-                <tr>
+             <tr>   <th>Foto</th> <th>Nombre</th> <th>Marca</th> <th>Tipo mueble</th> <th>Descripción</th> <th>Dimensiones</th>
+                 <th>Volum</th> <th>Oferta</th> <th>Cantidad</th> <th>Precio sin montaje</th> <th>Precio con montaje</th>
+                 <th>Fragil</th> <th>Editar</th> <th>Eliminar</th>   <tr>
+                @foreach($products as $product)
                     <td><br/><br/>
-                        @if($product->foto!=null)<img src="{{asset('storage/'.$product->foto)}}" width="250px" height="200px">@endif
+
+                        @if($product->foto!=null)<img src="{{asset('storage/'.$product->foto)}}" width="150px" height="100px">@endif
+                    <button><a class="btn-primaryregistrar" href="{{route('producto.edit',$product->id)}}">Ver mas..</a></button>
+
                     </td>
-                    <td class="description-property2">Nombre: {{$product->nombre_producto}}
-                        <br/>Marca: {{$product->marca}}
-                        <br/>Tipo mueble: {{$product->tipo_mueble}}
-                        <br/>Descripción: {{$product->descripcion}}
-                        <br/>Dimensiones: {{$product->dimensiones}}
-                        <br/>Volum: {{$product->volum}}
-                        <br/>Oferta: {{$product->oferta}}
-                        <br/>Cantidad: {{$product->cantidad}}
-                        <br/>Precio sin montaje; {{$product->precio_sin_montaje}}
-                        <br/>Precio con montaje: {{$product->precio_con_montaje}}
-                        <br/>Fragil: {{$product->fragil}}
+                    <td class=""><br/>{{$product->nombre_producto}}</td>
+                    <td>   <br/>{{$product->marca}}</td>
+                    <td>   <br/>{{$product->tipo_mueble}}</td>
+                    <td>   <br/>{{$product->descripcion}}  </td>
+                    <td>   <br/>{{$product->dimensiones}}  </td>
+                    <td>   <br/>{{$product->volum}}  </td>
+                    <td>   <br/>{{$product->oferta}}  </td>
+                    <td>   <br/>C{{$product->cantidad}}  </td>
+                    <td>   <br/>{{$product->precio_sin_montaje}}  </td>
+                    <td>   <br/>{{$product->precio_con_montaje}}  </td>
+                    <td>   <br/>{{$product->fragil}}
 
 
                     </td>
-                    <td><button><a class="" href="{{route('producto.edit',$product->id)}}">Edit</a></button></td>
+                    <td><button><a class="btn-primaryregistrar" href="{{route('producto.edit',$product->id)}}">Edit</a></button></td>
                     <td>
                         <form action="{{route('producto.destroy',$product->id)}}" method="POST" style="">
                             @csrf
                             @method("DELETE")
-                            <button  class="btn-delete" type="submit" onclick="if(!confirm('Are you sure?')){return false;};">Delete</button>
+                            <button  class="btn-primaryregistrar" type="submit" onclick="if(!confirm('¿Estas segur/o que quieres borrar?')){return false;};">Delete</button>
                         </form>
                     </td>
                 </tr>

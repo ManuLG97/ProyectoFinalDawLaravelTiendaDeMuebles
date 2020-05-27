@@ -29,6 +29,7 @@ body {
     text-align: center;
     position: fixed;
     list-style: none;
+    top:0;
 
 }
 
@@ -43,7 +44,7 @@ body {
 
 .btn-primary{
     margin-top: -150px;
-    width: 20vh;
+    width: 16vw;
     background-color: #a5c0bb;
     text-decoration: none;
     padding: 0.5vw;
@@ -51,9 +52,8 @@ body {
     color:black;
     text-align:center;
 }
-.btn-link{
-    margin-top: -150px;
-}
+
+
 .nav-item{
 
 }
@@ -165,18 +165,19 @@ ul, ol {
 }
 
 #imgcarro {
-    padding-top:1vw;
+    padding-top:0.5vw;
     width: 2vw;
 }
 
 .btn-primaryregistrar{
-    width: 20vh;
+    margin-top:2vw;
     background-color: #a5c0bb;
     text-decoration: none;
-    padding: 0.5vw;
+    padding: 0.3vw;
     font-size: 0.9vw;
     color:black;
     text-align:center;
+
 }
 
 
@@ -234,10 +235,21 @@ ul, ol {
 
 }
 
+
+.titulograndecrearproducto {
+
+    text-align: center;
+
+    text-decoration: underline;
+    font-size:1.9vw;
+}
+
+
+
 .titulogrande {
 
     text-align: center;
-    padding-top:3vw;
+    padding-top:5vw;
     text-decoration: underline;
     font-size:1.9vw;
 }
@@ -265,13 +277,13 @@ ul, ol {
 }
 
 footer {
-    min-height: 2vh;
+    min-height: 2vw;
     background-color: #a5c0bb;
     width: 100%;
-    position: fixed;
+
     bottom: 0;
     clear: both;
-    margin-top: 2vh;
+
     padding-top: 0px;
     overflow: visible;
 }
@@ -285,9 +297,9 @@ footer img {
 
 #titulo {
 
-    padding-left:5%;
+
     font-size:1.4vw;
-    padding-top: 1vw;
+    padding-top: 5vw;
 }
 
 a:hover {
@@ -309,7 +321,11 @@ a:hover {
 }
 
 #perfil {
-    margin-bottom: 5vw;
+    margin-bottom: 14.5vw;
+}
+
+#perfildos {
+    margin-bottom: 4.5vw;
 }
 
 .botonverde {
@@ -343,7 +359,7 @@ a:hover {
 
 .form-edit-user {
     text-align: center;
-    padding-top: 1vh;
+    padding-top: 1vw;
 
 
 
@@ -411,6 +427,7 @@ a:hover {
     }
 
 
+
 }
 
 
@@ -421,12 +438,23 @@ a:hover {
         font-size: 1.5vw;
     }
 
+    .card-body {
+
+        min-height: 27vw;
+    }
+
+
     #menu {
         height: 3.5vw;
         grid-gap: 5.3vw;
 
 
     }
+
+    .btn-primaryregistrar {
+
+
+        font-size: 1.7vw; }
 
     #sobrenosotros {font-size:1.9vw;}
     #sobrenosotros img {width:6vw}
@@ -441,6 +469,15 @@ a:hover {
     .titulogrande {
         font-size:4.5vw;
     }
+
+    .btn-link {
+        font-size:1.3vw;
+    }
+
+    .btn-primary {
+        margin-top: -130px;
+
+        font-size: 1.9vw; }
 
     #perfil {
         font-size:2.9vw;
@@ -463,8 +500,14 @@ a:hover {
     }
 
     .botonverde {
-        font-size:2.4vw;
+        font-size: 2.4vw;
     }
+
+    .card-body {
+
+        min-height: 29vw;
+    }
+
 }
 
 
@@ -505,15 +548,24 @@ a:hover {
         font-size:2.5vw;
     }
 
+    .card {
+        margin-top:9vw;
+    }
+
+
 
 }
 
 
 
-@media (max-width: 770px) {
+@media (max-width: 767px) {
 
-    body {background-color: red;font-size:2.5vw;}
+    body {background-color: red; font-size:2.2vw;}
 
+    .card-body {
+
+        min-height:52vw;
+    }
 
 
     #imglogo {
@@ -533,6 +585,12 @@ a:hover {
         width: 4vw;
     }
 
+
+    .btn-primaryregistrar {
+
+
+        font-size: 2.2vw; }
+
     #menu {
         height: 6.2vw;
         grid-gap:10.5vw;
@@ -549,6 +607,17 @@ a:hover {
         width:20vw;
     }
 
+    .btn-primaryregistrar {
+        text-align: center;
+        margin-left:1vw;
+    }
+
+    .btn-link {
+        text-align: center;
+        margin-left:1vw;
+        font-size:1.9vw;
+    }
+
     #searchinput {
         font-size:1.5vw;
         border-radius:60px;
@@ -556,12 +625,31 @@ a:hover {
         outline:none;}
 }
 
+
+
+
 @media (max-width: 500px) {
 
     body {
-        background-color: skyblue;
+        background-color: skyblue; font-size:2.6vw;}
+
+
+    .btn-primaryregistrar {
+        text-align: center;
+
+        font-size:2.6vw
     }
 
+    .btn-link {
+        text-align: center;
+
+        font-size:2.6vw
+    }
+
+    .card-body {
+
+        min-height:65vw;
+    }
 
 
     #menu {
@@ -603,54 +691,48 @@ a:hover {
     .botonverde {
         font-size:5vw;
     }
+
+    .card {
+
+        margin-top:15vw;
+    }
 }
 
-@media (max-width: 400px) {
-    body {background-color: #1d643b; ;  font-size:3.2vw;}
+@media (max-width:430px) {
 
-    footer img {
-        width: 7vw;
+
+
+    .card-body {
+
+        min-height:65vw;
     }
 
-    .botonverde {
-        font-size:5.5vw;
+}
+
+@media (max-width:380px) {
+
+
+
+    body {
+        font-size:3.5vw;
     }
 
-    #menu {
-        height: 10vw;grid-gap:2vw;
+    .card-body {
+
+        min-height:70vw;
     }
 
-    #imglogo {
-        height: 10vw;
+    .btn-primaryregistrar {
+        text-align: center;
+
+        font-size:3.5vw
     }
 
+    .btn-link {
+        text-align: center;
 
-
-    #searchinput {
-        font-size:2.7vw;
-        border-radius:60px;
-        margin-top:0.2vh;
-        outline:none;}
-    #imgnoticiasuno {
-        margin: 10px;
-        width: 55vw;
-        height: 45vw;
+        font-size:2.8vw
     }
 
-    #imgnoticiasdos {
-        margin: 10px;
-        width: 55vw;
-        height: 45vw;
-    }
-
-    #imgmenu {
-        height:5vw;
-        width:6vw;
-    }
-
-    .botongris {
-        font-size:3.9vw;
-        width:40vw;
-    }
 
 }

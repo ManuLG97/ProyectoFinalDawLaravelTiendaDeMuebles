@@ -5,6 +5,9 @@ use App\Producto;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+
+
 
 class AdminController extends Controller
 {
@@ -16,26 +19,32 @@ class AdminController extends Controller
 
     function __construct()
     {
-        $this->middleware(['auth','role:admin']);
+       $this->middleware(['auth','role:admin']);
 
     }
     public function index()
     {
-       /* $user=auth()->user()->id;
-        $admin= Producto::all();
-        $users=User::all();
+        $users=auth()->user()->id;
+        $produts= Producto::all();
+        $admin=User::all();
 
-        return view('products.users_info',compact('admin','users'));
-       */
-        return view('admin.admin_home',compact('admin'));
+       return view('products.users_info',compact('admin','users'));
+
+     //   return view('admin.admin_home',compact('admin'));
+
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function users()
+    {
+        $usuario=auth()->user()->id;
+        $users= Producto::all();
+        $admin=User::all();
+
+        return view('admin.users_info',compact('admin','users'));
+
+    }
+
     public function create()
     {
         //
@@ -76,7 +85,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user=User::find($id);
+       // $usuario=User::all();
+        return view('admin.edit_user',compact('user'));
     }
 
     /**
@@ -88,9 +99,46 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $user = User::find($id);
+    // dd($request);
+     //  dd($request->all());
+     // dd($user);
+
+        $user->update(['name' => $request->name,
+            'telefon' => $request->telefon,
+            'address' => $request->address,
+            'email' => $request->email,
+            'password' =>Hash::make($request->password),
+
+        ]);
+
+
+      // return redirect()->route('admin.users_info')->with('success','Registro actualizado satisfactoriamente');
+       return view('admin.users_info')->with('toast','Registro actualizado satisfactoriamente');
+
     }
 
+  /*   $this->validate($request,[
+         'name' => 'required',
+         'telefon' => 'required',
+         'address' => 'required',
+         'email' => 'required',
+         //   'password' => bcrypt($request->password),
+         'password' =>'required',
+     ]);
+        $user = User::find($id);
+        $user->name=$request->get('name');
+        $user->telefon=$request->get('telefon');
+        $user->address=$request->get('address');
+        $user->email=$request->get('email');
+        $user->password=$request->get('password');
+        $user->save();
+
+
+
+       return redirect()->route('admin.users_info')->with('success','Registro actualizado satisfactoriamente');
+    }
+*/
     /**
      * Remove the specified resource from storage.
      *
@@ -99,6 +147,11 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+
+        // return redirect()->route('products.all_products')->with('success','Registro actualizado satisfactoriamente');
+        return view('admin.users_info')->with('success','Registro actualizado satisfactoriamente');
+
+
     }
 }
