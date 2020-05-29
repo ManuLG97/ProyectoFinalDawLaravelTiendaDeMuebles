@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Photos;
 use App\Producto;
 use App\User;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class ProductoController extends Controller
 
     function __construct()
     {
-      $this->middleware(['auth','role:admin']);
+        $this->middleware(['auth','role:admin']);
     }
 
     public function index()
@@ -49,8 +50,8 @@ class ProductoController extends Controller
         $user_info=User::find($user_id);
         $role=$user_info->hasRole("admin");
         if($role){
-            $path=$request->file('foto')->store('foto','public');
-            Producto::create(['id_usuario'=>$user_id,
+            $path=$request->file('foto')->store('fotos','public');
+            $producto=Producto::create(['id_usuario'=>$user_id,
                 'nombre_producto'=>$request->nombre_producto,
                 'marca'=>$request->marca,
                 'tipo_mueble'=>$request->tipo_mueble,
@@ -64,7 +65,20 @@ class ProductoController extends Controller
                 'fragil'=>$request->fragil,
                 'foto'=>$path
             ]);
-            return view('products.all_products',compact('products','user'));
+
+            $photos = $request->file('photo');
+
+            if($photos) {
+                foreach ($photos as $photo) {
+                    $path = $photo->store('fotos', 'public');
+                    Photos::create([
+                        'product_id' => $producto->id,
+                        'photo' => $path
+                    ]);
+
+                }
+            }
+            return view('products.all_products',compact('products','user'))->with('success','Se ha añadido un producto');
         }
     }
 
@@ -79,8 +93,27 @@ class ProductoController extends Controller
 
         $products= Producto::all();
         $user=auth()->user()->id;
-        return view('products.all_products',compact('products','user'));
 
+
+        return view('products.all_products',compact('products','user'));
+        /*
+                $products=Producto::find($id);
+                $users=User::all();
+                return view('products.edit_product',compact('products','users'));
+        */
+    }
+    public function info($id)
+    {
+        $producto=Producto::find($id);
+        $users=User::all();
+
+        $photos= $producto->photos()->get('photo');
+       // dd($photos);
+        if($photos != null){
+            $total = count($photos);
+        }
+
+        return view('products.info_product',compact('producto','photos','total','users'));
     }
 
     /**
@@ -93,7 +126,8 @@ class ProductoController extends Controller
     {
         $products=Producto::find($id);
         $users=User::all();
-        return view('products.edit_product',compact('products','users'));
+        $photos = $products->photos()->get('photo');
+        return view('products.edit_product',compact('products','users','photos'));
     }
 
     /**
@@ -105,53 +139,53 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $user=auth()->user()->id;
-        if($request->has('foto')){
+        $products = Producto::find($id);
+
+        if($request->file('foto')){
             $path=$request->file('foto')->store('foto','public');
-        }else{
-            $path="";
-                }
+        }
 
-               $products=Producto::find($id);
-               if($path!=""){
-                   $products->update([
-                       'nombre_producto'=>$request->nombre_producto,
-                       'marca'=>$request->marca,
-                       'tipo_mueble'=>$request->tipo_mueble,
-                       'descripcion'=>$request->descripcion,
-                       'dimensiones'=>$request->dimensiones,
-                       'volum'=>$request->volum,
-                       'oferta'=>$request->oferta,
-                       'cantidad'=>$request->cantidad,
-                       'precio_sin_montaje'=>$request->precio_sin_montaje,
-                       'precio_con_montaje'=>$request->precio_con_montaje,
-                       'fragil'=>$request->fragil,
-                       'foto'=>$path
+        else{
+            $path=$products['foto'];
+        }
 
-                   ]);
-               }else{
-                   $products->update([
-                       'nombre_producto'=>$request->nombre_producto,
-                       'marca'=>$request->marca,
-                       'tipo_mueble'=>$request->tipo_mueble,
-                       'descripcion'=>$request->descripcion,
-                       'dimensiones'=>$request->dimensiones,
-                       'volum'=>$request->volum,
-                       'oferta'=>$request->oferta,
-                       'cantidad'=>$request->cantidad,
-                       'precio_sin_montaje'=>$request->precio_sin_montaje,
-                       'precio_con_montaje'=>$request->precio_con_montaje,
-                       'fragil'=>$request->fragil,
-                       'foto'=>$path
+            $products->update([
+                'nombre_producto'=>$request->nombre_producto,
+                'marca'=>$request->marca,
+                'tipo_mueble'=>$request->tipo_mueble,
+                'descripcion'=>$request->descripcion,
+                'dimensiones'=>$request->dimensiones,
+                'volum'=>$request->volum,
+                'oferta'=>$request->oferta,
+                'cantidad'=>$request->cantidad,
+                'precio_sin_montaje'=>$request->precio_sin_montaje,
+                'precio_con_montaje'=>$request->precio_con_montaje,
+                'fragil'=>$request->fragil,
+                'foto'=>$path
 
-                   ]);
-               }
-    //   return redirect()->route('products.all_products');
+            ]);
 
-       //  return view('products.all_products',compact('products','user'));
-          return view('products.all_products',compact('products','user'));
+    $photos = $request->file('photo');
+
+        if ($photos != null) {
+
+            foreach ($photos as $photo) {
+                $path = $photo->store('fotos', 'public');
+               Photos::create([
+                    'product_id' => $products->id,
+                    'photo' => $path
+                ]);
+
+            }
+        }
+         // return redirect()->route('products.all_products');
+
+        //  return view('products.all_products',compact('products','user')); */
+       return view('products.all_products',compact('products'));
 
     }
+
+
 
     /**
      * Remove the specified resource from storage.

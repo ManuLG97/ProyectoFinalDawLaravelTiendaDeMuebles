@@ -107,11 +107,4 @@
     </div>
 
 
-    <footer>
-        <img src="imagenes/iconos/fb.png" alt="icono facebook"  />
-        <img src="imagenes/iconos/insta.png" alt="icono facebook" />
-        <img src="imagenes/iconos/icono-youtube.png" alt="icono youtube "  />
-
-    </footer>
-
 @endsection

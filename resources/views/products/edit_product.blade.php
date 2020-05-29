@@ -3,7 +3,7 @@
 @section('content')
     <div class="col-lg-12">
 
-        <h1 class="my-4">Property edit</h1>
+        <h1 class="my-5">Editar producto</h1>
 
         @if(count($errors)>0)
             <div class="alert alert-danger">
@@ -15,68 +15,63 @@
             </div>
         @endif
 
-        <form class="" action="{{route('producto.update',$products->id)}}" method="POST">
+        <form class="form-propertie centrar" action="{{route('producto.update',$products->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            Nombre
-            <br/>
+            <label for="nombre_producto">Nombre:</label>
             <input class="text-info" type="text" name="nombre_producto" value="{{$products->nombre_producto}}">
-            <br/> <br/>
-
-            Marca
             <br/>
+
+            <label for="marca">Marca: </label>
             <input class="text-info" type="text" name="marca" value="{{$products->marca}}">
-            <br/> <br/>
-
-            Tipo mueble
             <br/>
+
+            <label for="tipo_mueble"> Tipo mueble: </label>
             <input class="text-info" type="text" name="tipo_mueble" value="{{$products->tipo_mueble}}">
-            <br/> <br/>
-
-            Descripcion
             <br/>
+
+
+            <label for="tipo_mueble"> Descripcion: </label>
             <input class="text-info" type="text" name="descripcion" value="{{$products->descripcion}}">
-            <br/> <br/>
-
-            Dimensiones
             <br/>
+
+            <label for="dimensiones"> Dimensiones: </label>
             <input class="text-info" type="text" name="dimensiones" value="{{$products->dimensiones}}">
-            <br/> <br/>
-
-            Volum
             <br/>
+
+            <label for="volum"> Volum: </label>
             <input class="text-info" type="text" name="volum" value="{{$products->volum}}">
-            <br/> <br/>
-
-            Oferta
             <br/>
+
+            <label for="oferta"> Oferta: </label>
             <input class="text-info" type="number" name="oferta" value="{{$products->oferta}}">
-            <br/> <br/>
-
-            Cantidad
             <br/>
+
+
+            <label for="cantidad"> Cantidad: </label>
             <input class="text-info" type="number" name="cantidad" value="{{$products->cantidad}}">
-            <br/> <br/>
-
-            Precio sin montaje
             <br/>
+
+            <label for="precio_sin_montaje"> Precio sin montaje: </label>
+
             <input class="valid" type="number" name="precio_sin_montaje" value="{{$products->precio_sin_montaje}}" class="form form-control">
-            <br/><br/>
-
-            Precio con montaje
             <br/>
+
+            <label for="precio_con_montaje"> Precio con montaje: </label>
+
             <input class="valid" type="number" name="precio_con_montaje" value="{{$products->precio_con_montaje}}" class="form form-control">
-            <br/><br/>
-
-            Fragil
             <br/>
+
+            <label for="fragil"> Fragil: </label>
             <input class="valid" type="number" name="fragil" value="{{$products->fragil}}" class="form form-control">
-            <br/><br/>
-
-            Foto
             <br/>
+
+            <label for="foto"> Foto: </label>
             <input class="valid-photo" type="file" name="foto" value="{{$products->foto}}" class="form form-control">
             <br/>
+
+            <label for="photo">Imagenes</label>
+            <input type="file" name="photo[]" multiple>
 
             @foreach($users as $user)
                 <datalist id="user_id">

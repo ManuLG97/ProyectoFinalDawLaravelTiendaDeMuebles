@@ -1831,9 +1831,7 @@ pre code {
 
 .table th,
 .table td {
-  padding: 0.75rem;
-  vertical-align: top;
-  border-top: 1px solid #dee2e6;
+
 }
 
 .table thead th {
@@ -2360,6 +2358,7 @@ textarea.form-control {
 .form-check {
   position: relative;
   display: block;
+  padding-top:1vw;
   padding-left: 10.25vw;
 }
 
@@ -4481,7 +4480,7 @@ input[type=button].btn-block {
 
 .nav-link {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.7vw;
 }
 
 .nav-link:hover,
@@ -4536,7 +4535,7 @@ input[type=button].btn-block {
 }
 
 .nav-pills .nav-link {
-  border-radius: 0.25rem;
+  border-radius: 0.55rem;
 }
 
 .nav-pills .nav-link.active,
@@ -6744,6 +6743,7 @@ a.close.disabled {
 
 .carousel {
   position: relative;
+  width: 30vw;
 }
 
 .carousel.pointer-event {
@@ -8551,7 +8551,7 @@ button.bg-dark:focus {
 
 .mt-4,
 .my-4 {
-  margin-top: 8vw !important;
+  margin-top: 1vw !important;
   width: 100%;
   text-align: center;
 }
@@ -10929,10 +10929,6 @@ a.text-dark:focus {
     border: 1px solid #000;
   }
 
-  .botonproductos {
-
-    margin-bottom:4vw;
-  }
 
 
   .table {

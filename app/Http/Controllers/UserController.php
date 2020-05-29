@@ -19,13 +19,13 @@ class UserController extends Controller
 
         $role=$user_info->hasRole("admin");
         if($role){
-            $user=User::all();
-            return view('admin.info',compact('user','usuario'));
+            $users=User::all();
+            return view('admin.info',compact('users','usuario'));
         }else{
-            $user=User::all();
+            $users=User::all();
 
         }
-        return view('user.info',compact('user','usuario'));
+        return view('user.info',compact('users','usuario'));
 
     }
 
@@ -91,7 +91,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $user=auth()->user()->id;
+        $user=auth()->user()->id;
         $user_info=User::find($user);
         $role=$user_info->hasRole("admin");
         if($role){
@@ -100,7 +100,7 @@ class UserController extends Controller
                 'telefon' => $request->telefon,
                 'address' => $request->address,
                 'email' => $request->email,
-               // 'password' => bcrypt($request->password),
+                // 'password' => bcrypt($request->password),
                 'password' => Hash::make($request->password),
 
             ]);
@@ -112,7 +112,7 @@ class UserController extends Controller
                 'telefon' => $request->telefon,
                 'address' => $request->address,
                 'email' => $request->email,
-             //   'password' => bcrypt($request->password),
+                //   'password' => bcrypt($request->password),
                 'password' =>Hash::make($request->password),
 
             ]);

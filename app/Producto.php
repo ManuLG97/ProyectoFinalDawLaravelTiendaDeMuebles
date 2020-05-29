@@ -17,4 +17,8 @@ class Producto extends Model
     public function mobiliarias(){
         return $this->hasOne('App\Mobiliaria');
     }
+    public function photos()
+    {
+        return $this->hasMany('App\Photos','product_id');
+    }
 }

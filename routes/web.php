@@ -25,7 +25,7 @@ Route::get('/contact/contacto','HomeController@contactar');
 
 
 Route::group(['middleware' => ['web']], function () {
-       return view('products.all_products');
+    return view('products.all_products');
 });
 
 Route::get('/contact','HomeController@contactar');
@@ -87,6 +87,9 @@ Route::resource('/admin/users_info','AdminController');
 Route::put('/admin/{id}/update', 'AdminController@update')->name('admin.update');
 Route::resource('/admin/users_info','AdminController@users');
 
+Route::put('/admin/{id}/store', 'AdminController@update')->name('admin.update');
+Route::resource('/admin/users_info','AdminController@users');
+
 
 
 Route::delete('/user/{id}/delete', 'AdminController@destroy')->name('admin.destroy');
@@ -96,9 +99,19 @@ Route::resource('/admin/users_info','AdminController@users');
 
 Route::resource('/products/all_products','ProductoController');
 
-Route::delete('/producto/{id}/delete', 'ProductoController@destroy')->name('producto.destroy');
-Route::resource('/products/all_products','ProductoController@index');
 
+Route::get('/products/info_product/{id}', 'ProductoController@info')
+    ->name('producto.info')->middleware('auth','role:admin');
+Route::resource('products.info_product','ProductoController@info');
+
+
+
+Route::delete('/user/{id}/delete', 'AdminController@destroy')->name('admin.destroy');
+Route::resource('/admin/users_info','AdminController@users');
+
+//Route::put('/producto/{id}/store', 'ProductoController@store')->name('producto.update');
+Route::resource('/products/all_products','ProductoController@store');
+Route::resource('products','ProductoController');
 
 
 

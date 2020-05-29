@@ -4,7 +4,7 @@
     <div class="col-lg-12">
 
         <h1 class="titulogrande">Editar</h1>
-        <form class="form-edit-user" action="{{route('user.update',$users->id)}}" method="POST">
+        <form class="form-edit-user" id="perfileditar" action="{{route('user.update',$users->id)}}" method="POST">
             @csrf
             @method('PUT')
             <td><strong>Name:  </strong><input type="text" name="name" value="{{$users->name}}">

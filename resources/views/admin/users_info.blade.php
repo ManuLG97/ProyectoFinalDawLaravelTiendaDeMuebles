@@ -1,51 +1,61 @@
 
-@extends('layouts.app_admin')
+        @extends('layouts.app_admin')
 
-@section('content')
-    <a class="col-lg-12">
+        @section('content')
+            <a class="col-lg-12">
 
-        <h1 class="my-4">Usuarios información</h1>
-        <div class="perfil">
-        @if($message=\Illuminate\Support\Facades\Session::get('success'))
-            <div class="alert alert-success">
-                <p>{{$message}}</p>
-            </div>
-        @endif
+                <h1 class="my-4"><strong>Usuarios información</strong></h1>
+                <div class="perfil">
+                    @if($message=\Illuminate\Support\Facades\Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{$message}}</p>
+                        </div>
+                    @endif
 
-        <a href="{{route('admin.users')}}"></a>
-        @csrf
-        <table class="table_info" >
-            <thead>
+                    <a href="{{route('admin.users')}}"></a>
+                    @csrf
+                    <table class="table_info" >
 
-            <?php
-            $admin=\App\User::all();
-            ?>
-            @foreach($admin as $user)
+                        <tr>
+                            <td colspan="14" class="tablastdtitulolista"> <h2> <strong> Lista Usuarios </strong> </h2></td>
+                        </tr>
 
-                <tr>
-                    <td> <br/> <p><strong>Nombre:  </strong>{{$user->name}}</p>
-                        <p><strong>Telefono:   </strong>{{$user->telefon}}</p>
-                        <p><strong>Dirección:   </strong>{{$user->address}}</p>
-                        <p><strong>Email:   </strong>{{$user->email}}</p>
-                        <p><strong>Contraseña:   </strong><input type="password" value="{{$user->password}}"></p>
-                    </td>
-                    <td><button><a class="" href="{{route('admin.edit',$user->id)}}">Edit</a></button></td>
-                    <td>
-                        <form action="{{route('admin.destroy',$user->id)}}" method="POST" style="">
-                            @csrf
-                            @method("DELETE")
-                            <button  class="btn-delete" type="submit" onclick="if(!confirm('¿Estas segur/o que quieres borrar?')){return false;};">Delete</button>
+                        <tr> <td class="tablastdtitulo">Informacion</td>    <td class="tablastdtitulo">Editar</td> <td class="tablastdtitulo">Eliminar</td>   <tr>
 
-                        </form>
+                        <?php
+                        $admin=\App\User::all();
+                        ?>
+                        @foreach($admin as $user)
+                            @if($user->email!="admin@example.com")
+                            <tr class="tablas">
+                                <td class="tablastd"> <br/> <p><strong>Nombre:  </strong>{{$user->name}}</p>
+                                    <p><strong>Telefono:   </strong>{{$user->telefon}}</p>
+                                    <p><strong>Dirección:   </strong>{{$user->address}}</p>
+                                    <p><strong>Email:   </strong>{{$user->email}}</p>
+                                    <p><strong>Contraseña:   </strong><input type="password" value="{{$user->password}}"></p>
+                                </td>
 
-                </tr>
+                                <td class="tablastd"><button class="btn-primaryregistrar"><a class="" href="{{route('admin.edit',$user->id)}}">Edit</a></button></td>
+                                <td class="tablastd">
+                                    <form action="{{route('admin.destroy',$user->id)}}" method="POST" style="">
+                                        @csrf
+                                        @method("DELETE")
+                                        <button  class="btn-primaryregistrar" type="submit" onclick="if(!confirm('¿Estas segur/o que quieres borrar?')){return false;};">Delete</button>
 
-            @endforeach
+                                    </form>
 
-            </thead>
-        </table>
-        </div>
+                            </tr>
 
-        </div>
+                            @endif
+                        @endforeach
+
+
+
+                    </table>
+
+                </div>
+
+                </div>
 
 @endsection
+

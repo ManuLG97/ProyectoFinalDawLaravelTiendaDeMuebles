@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1 class="titulogrande">Mi perfil</h1><br/>
+    <h1 class="titulograndemiperfil">Mi perfil</h1><br/>
     @csrf
     <div id="perfil">
         <form class="form-edit-user centrar" action="{{route('user.index')}}" method="POST">
@@ -10,13 +10,13 @@
             @method('PUT')
             <table class="table_info">
                 <thead>
-                @foreach($user as $property)
-                    @if($property->id == $usuario)
+                @foreach($users as $user)
+                    @if($user->id == $usuario)
                         <tr>
-                            <td class="centrar_perfil"><strong>Name:  </strong>{{$property->name}}"
-                                <br/><br/><strong>Telefóno:   </strong>{{$property->telefon}}"
-                                <br/><br/><strong>Dirección:   </strong>{{$property->address}}"
-                                <br/><br/><strong>Email:   </strong>{{$property->email}}"
+                            <td class="centrar_perfil"><strong>Name:  </strong>{{$user->name}}"
+                                <br/><br/><strong>Telefóno:   </strong>{{$user->telefon}}"
+                                <br/><br/><strong>Dirección:   </strong>{{$user->address}}"
+                                <br/><br/><strong>Email:   </strong>{{$user->email}}"
                             </td>
                         </tr>
                     @endif
@@ -24,7 +24,7 @@
                 </thead>
             </table>
             <br/>  <br/>
-            <a class="botonverde" href="{{route('user.edit',$property->id)}}">Modificar perfil</a>
+            <a class="botonverde" href="{{route('user.edit',['user'=>Auth::user()])}}">Modificar perfil</a>
             <br/>
         </form>
     </div>
