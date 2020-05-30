@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Producto;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -58,9 +59,43 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+        $usuario=auth()->user()->id;
+        $user_info=User::find($usuario);
+        $products=Producto::all();
+        $producto=Producto::find($id);
 
+        $photos= $producto->photos()->get('photo');
+        // dd($photos);
+        if($photos != null) {
+            $total = count($photos);
+
+            $role = $user_info->hasRole("admin");
+            if ($role) {
+                $users=User::all();
+
+                return view('products.info_product', compact('producto', 'photos', 'total', 'users', 'products'));
+            } else {
+                $users=User::all();
+            }
+            return view('info_product', compact('producto', 'photos', 'total', 'users', 'products'));
+
+        }
+
+
+        /*
+             $products=Producto::all();
+             $producto=Producto::find($id);
+             $users=User::all();
+
+             $photos= $producto->photos()->get('photo');
+             // dd($photos);
+             if($photos != null){
+                 $total = count($photos);
+             }
+
+             return view('info_product',compact('producto','photos','total','users','products'));
+        */
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -122,6 +157,52 @@ class UserController extends Controller
 
     }
 
+
+    public function ofertas()
+    {
+      /*  $usuario=auth()->user()->id;
+        $user_info=User::find($usuario);
+
+        $role=$user_info->hasRole("admin");
+        if($role){
+            $users=User::all();
+            return view('admin.ofertas',compact('users','usuario'));
+        }else{
+            $users=User::all();
+
+        }
+        return view('ofertas',compact('users','usuario'));*/
+
+        return view('ofertas');
+    }
+    public function adminofertas()
+    {
+        return view('admin.ofertas');
+
+    }
+
+    public function novedades()
+    {
+        $usuario=auth()->user()->id;
+        $user_info=User::find($usuario);
+
+        $role=$user_info->hasRole("admin");
+        if($role){
+            $users=User::all();
+            return view('admin.novedades');
+        }else{
+            $users=User::all();
+
+        }
+
+        return view('novedades');
+    }
+
+    public function adminnovedades()
+    {
+        return view('admin.novedades');
+
+    }
     /**
      * Remove the specified resource from storage.
      *

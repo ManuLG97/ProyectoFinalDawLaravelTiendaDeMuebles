@@ -28,9 +28,8 @@
         <li><img src="/imagenes/iconos/menu.png" id="imgmenu" alt="Icono para abrir el menu" />
             <ul>
                 <li><a href="{{ url('admin/admin_home') }}">Inicio</a></li>
-                <li><a href="">Oferta</a></li>
-                <li><a href="">Novedades</a></li>
-                <li><a href="">Bajan de precio</a></li>
+                <li><a href="{{ url('adminofertas') }}">Oferta</a></li>
+                <li><a href="{{ url('adminnovedades') }}">Novedades</a></li>
                 <li><a href="">Armarios</a></li>
                 <li><a href="">Librerias</a></li>
                 <li><a href="">Estanterias</a></li>
@@ -38,7 +37,6 @@
                 <li><a href="">Comodas</a></li>
                 <li><a href="">Mesillas</a></li>
                 <li><a href="">Vitrinas</a></li>
-                <li><a href="">Mesas de escritorio</a></li>
                 <li><a href="">Mesas</a></li>
                 <li><a href="">Tocadores</a></li>
                 <li><a href="">Sillones</a></li>
@@ -77,7 +75,7 @@
             <ul class="menulogin">
                 <div>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar') }}</a>
                     </li>
                 </div>
 

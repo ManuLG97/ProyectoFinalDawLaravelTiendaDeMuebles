@@ -139,6 +139,26 @@ class AdminController extends Controller
        return redirect()->route('admin.users_info')->with('success','Registro actualizado satisfactoriamente');
     }
 */
+
+    public function contactar()
+    {
+
+        return view('admin.contacto');
+    }
+
+
+    public function ofertas()
+    {
+        return view('admin.ofertas');
+
+
+    }
+
+    public function novedades()
+    {
+        return view('admin.novedades');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

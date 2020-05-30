@@ -4,7 +4,7 @@
 @section('content')
     <div class="col-lg-12">
 
-       <h1 class="my-6">Editar usuario</h1>
+       <h1 class="my-5">Editar usuario</h1>
         <div class="perfildos">
 
         @if(count($errors)>0)
@@ -21,31 +21,30 @@
         <form class="form-edit-user" action="{{route('admin.update',$user->id)}}" method="POST">
             @csrf
             @method('PUT')
-            Nombre
-            <br/>
+            <label for="name">  Nombre: </label>
             <input class="edit-user" type="text" name="name" value="{{$user->name}}">
             <br/><br/>
-            Telefono
-            <br/>
+
+            <label for="telefon">  Telefono: </label>
             <input class="edit-user" type="text" name="telefon" value="{{$user->telefon}}">
             <br/><br/>
-            Dirección
-            <br/>
+
+            <label for="address">  Dirección: </label>
             <input class="edit-user" type="text" name="address" value="{{$user->address}}">
             <br/><br/>
-            Email
-            <br/>
+
+            <label for="email">  Email: </label>
             <input class="edit-user" type="text" name="email" value="{{$user->email}}">
             <br/><br/>
-            Contraseña
-            <br/>
+
+            <label for="password">   Contraseña: </label>
             <input class="edit-user" type="password" name="password" value="{{$user->password}}">
             <br/><br/>
 
 
 
             <br/>
-            <input class="save-user" type="submit" class="btn btn-primary" value="Guardar cambios" onclick="if(!confirm('¿Estas segur/o que quieres modificar?')){return false;};">
+            <input class="btn btn-primaryregistrar" type="submit"  value="Guardar cambios" onclick="if(!confirm('¿Estas segur/o que quieres modificar?')){return false;};">
             <br/>
             <br/>
         </form>

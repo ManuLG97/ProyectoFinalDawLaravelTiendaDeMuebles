@@ -21,14 +21,26 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('info_product/{id}', 'HomeController@show')
+    ->name('home.show');
+Route::resource('info_product','HomeController@show');
+/*
+Route::get('info_product/{id}', 'UserController@show')
+    ->name('user.show');
+Route::resource('info_product','UserController@show');
+*/
+
+
 Route::get('/contact/contacto','HomeController@contactar');
+
+Route::get('ofertas','HomeController@ofertas');
+Route::get('novedades','HomeController@novedades');
+
 
 
 Route::group(['middleware' => ['web']], function () {
     return view('products.all_products');
 });
-
-Route::get('/contact','HomeController@contactar');
 
 
 
@@ -70,7 +82,6 @@ Route::get('products.all_products', function () {
 
 Route::resource('contacto','ContactoController')->middleware('auth','role:user');
 Route::resource('contacto','ContactoController')->middleware('auth','role:admin');
-//Route::resource('contacto','HomeController@contactar');
 
 
 
@@ -109,9 +120,12 @@ Route::resource('products.info_product','ProductoController@info');
 Route::delete('/user/{id}/delete', 'AdminController@destroy')->name('admin.destroy');
 Route::resource('/admin/users_info','AdminController@users');
 
-//Route::put('/producto/{id}/store', 'ProductoController@store')->name('producto.update');
 Route::resource('/products/all_products','ProductoController@store');
 Route::resource('products','ProductoController');
 
+
+
+Route::get('adminofertas', 'UserController@adminofertas');
+Route::get('adminnovedades', 'UserController@adminnovedades');
 
 

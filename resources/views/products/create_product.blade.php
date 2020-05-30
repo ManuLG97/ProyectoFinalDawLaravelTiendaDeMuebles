@@ -68,8 +68,8 @@
 
             <label for="photo">Imagenes</label>
             <input type="file" name="photo[]" multiple>
-
-            <input  type="submit" class="botonverde" value="Guardar Cambios">
+            <br/>
+            <input  type="submit" class="btn btn-primaryregistrar" value="Guardar Cambios">
             <br/>
         </form>
         <br/>

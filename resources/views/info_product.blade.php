@@ -1,4 +1,4 @@
-@extends('layouts.app_admin')
+@extends('layouts.app')
 @section('content')
     <br/><br/><br/>
 
@@ -65,16 +65,17 @@
                         <br/> <strong>Descripción:   </strong> {{$producto->descripcion}}
                         <br/> <strong>Dimensiones:   </strong> {{$producto->dimensiones}}
                         <br/> <strong>Volum:   </strong> {{$producto->volum}}
-                        <br/> <strong>Oferta:   </strong> {{$producto->oferta}}
-                        <br/> <strong>Cantidad:   </strong> {{$producto->cantidad}}
-                        <br/> <strong>Precio sin montaje:   </strong> {{$producto->precio_sin_montaje}}
-                        <br/> <strong>Precio con montaje:   </strong> {{$producto->precio_con_montaje}}
-                        <br/> <strong>Fragil:   </strong> {{$producto->fragil}}
+                        <br/> <strong>Cantidad:   </strong> {{$producto->cantidad}} se debe modificar la cantidad
+                        <br/> <strong>Precio sin montaje:   </strong> {{$producto->precio_sin_montaje}} €
+                        <br/> <strong>Precio con montaje:   </strong> {{$producto->precio_con_montaje}} €
+
                     </td>
                 </tr>
 
                 </thead>
             </table>
+            <button class="btn-primaryregistrar"><a href="{{}}">Añadir al carrito</a></button>
+
         </div>
         <br/>  <br/>
     </div>

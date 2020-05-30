@@ -24,7 +24,7 @@
                 </thead>
             </table>
             <br/>  <br/>
-            <a class="botonverde" href="{{route('user.edit',['user'=>Auth::user()])}}">Modificar perfil</a>
+            <a class="btn btn-primaryregistrar" href="{{route('user.edit',['user'=>Auth::user()])}}">Modificar perfil</a>
             <br/>
         </form>
     </div>

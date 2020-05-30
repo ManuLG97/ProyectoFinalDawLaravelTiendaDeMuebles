@@ -16,7 +16,7 @@ class ProductoController extends Controller
 
     function __construct()
     {
-        $this->middleware(['auth','role:admin']);
+       $this->middleware(['auth','role:admin']);
     }
 
     public function index()
@@ -104,6 +104,7 @@ class ProductoController extends Controller
     }
     public function info($id)
     {
+        $products=Producto::all();
         $producto=Producto::find($id);
         $users=User::all();
 
@@ -113,7 +114,7 @@ class ProductoController extends Controller
             $total = count($photos);
         }
 
-        return view('products.info_product',compact('producto','photos','total','users'));
+        return view('products.info_product',compact('producto','photos','total','users','products'));
     }
 
     /**

@@ -40,7 +40,7 @@
                     <td class="tablastd">   <br/>{{$product->dimensiones}}  </td>
                     <td class="tablastd">   <br/>{{$product->volum}}  </td>
                     <td class="tablastd">   <br/>{{$product->oferta}}  </td>
-                    <td class="tablastd">   <br/>C{{$product->cantidad}}  </td>
+                    <td class="tablastd">   <br/>{{$product->cantidad}}  </td>
                     <td class="tablastd">   <br/>{{$product->precio_sin_montaje}}  </td>
                     <td class="tablastd">    <br/>{{$product->precio_con_montaje}}  </td>
                     <td class="tablastd" >   <br/>{{$product->fragil}}

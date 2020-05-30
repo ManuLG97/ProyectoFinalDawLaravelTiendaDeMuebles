@@ -7,11 +7,28 @@
         <form class="form-edit-user" action="{{route('user.update',$users->id)}}" method="POST">
             @csrf
             @method('PUT')
-            <td><strong>Name:  </strong><input type="text" name="name" value="{{$users->name}}">
-                <br/><br/><strong>Telefóno:   </strong><input type="number" name="telefon" value="{{$users->telefon}}">
-                <br/><br/><strong>Dirección:   </strong><input type="text" name="address" value="{{$users->address}}">
-                <br/><br/><strong>Email:   </strong><input type="text" name="email" value="{{$users->email}}">
-                <br/><br/><strong>Contraseña: </strong><input type="password" name="password" value="{{$users->password}}">
+            <td><label for="name">  Nombre: </label>
+                <input type="text" name="name" value="{{$users->name}}">
+                <br/>
+
+                <label for="telefon">  Telefono: </label>
+                <input  type="text" name="telefon" value="{{$users->telefon}}">
+                <br/>
+
+                <label for="address">  Dirección: </label>
+                <input type="text" name="address" value="{{$users->address}}">
+                <br/>
+
+                <label for="email">  Email: </label>
+                <input  type="text" name="email" value="{{$users->email}}">
+                <br/>
+
+
+
+                <label for="password">   Contraseña: </label>
+                <input  type="password" name="password" value="{{$users->password}}">
+                <br/>
+
             </td>
             <br/><br/>
             @foreach($user as $usuario)
@@ -20,7 +37,7 @@
                 </datalist>
             @endforeach
             <br/>
-            <input  type="submit" class="botongris" value="Guardar cambios" onclick="if(!confirm('¿Estas segur/o que quieres modificar?')){return false;};">
+            <input  type="submit" class="btn btn-primaryregistrar" value="Guardar cambios" onclick="if(!confirm('¿Estas segur/o que quieres modificar?')){return false;};">
             <br/>
             <br/>
         </form>

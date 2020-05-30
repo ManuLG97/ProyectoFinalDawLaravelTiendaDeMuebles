@@ -41,10 +41,23 @@ class HomeController extends Controller
        //  return view('home',compact('home'));
 
 
-    public function show()
+
+
+    public function show($id)
     {
 
-        // return view('home',compact('home'));
+        $products=Producto::all();
+        $producto=Producto::find($id);
+        $users=User::all();
+
+        $photos= $producto->photos()->get('photo');
+        // dd($photos);
+        if($photos != null){
+            $total = count($photos);
+        }
+
+        return view('info_product',compact('producto','photos','total','users','products'));
+
     }
 
     public function contactar()
@@ -53,7 +66,17 @@ class HomeController extends Controller
         return view('contact');
     }
 
+    public function ofertas()
+    {
+        return view('ofertas');
 
+
+    }
+
+    public function novedades()
+    {
+        return view('novedades');
+    }
 
 
 }

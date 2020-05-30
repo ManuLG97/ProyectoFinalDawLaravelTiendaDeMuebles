@@ -4,7 +4,7 @@
         @section('content')
             <a class="col-lg-12">
 
-                <h1 class="my-4"><strong>Usuarios información</strong></h1>
+                <h1 class="my-5"><strong>Usuarios información</strong></h1>
                 <div class="perfil">
                     @if($message=\Illuminate\Support\Facades\Session::get('success'))
                         <div class="alert alert-success">
