@@ -2,7 +2,6 @@
 
                 @section('content')
 
-
                             <div id="noticias">
 
                                 <img src="/imagenes/mueble-salon-economico.jpg" id="imgnoticiasuno" alt=""/>
@@ -13,13 +12,13 @@
 
 
                             <div id="comprassugeridas">
-                                <div id="titulo"> Ofertas </div>
+                                <div id="titulo"> <strong>Ofertas</strong> </div>
                                 <div>
                                     @php
                                         $products=\App\Producto::first()->take(4)->get();
                                     @endphp
                                     @foreach($products as $product)
-                                        @if($product->oferta == "1");
+                                        @if($product->oferta == "1")
                                     <div class="oferta">
                                         <a href="{{route('home.show',$product->id)}}"><img class="imagenessugeridas centrar" src="{{asset('storage/'.$product->foto)}}" alt="Foto mueble con el nombre: {{$product->nombre_producto}}"/> <br> <p class="centrar">{{$product->nombre_producto}}</p></a>
                                     </div>
@@ -34,7 +33,7 @@
 
 
                             <div id="comprassugeridas">
-                                <div id="titulo"> Novedades </div>
+                                <div id="titulo"> <strong>Novedades</strong> </div>
                                 <div>
                                     @php
                                         $products=\App\Producto::latest()->take(3)->get();
@@ -53,7 +52,7 @@
 
 
                             <div id="sobrenosotros">
-                                <div id="sobrenostrostitulo">SOBRE NOSOTROS</div>
+                                <div id="sobrenostrostitulo"><strong>SOBRE NOSOTROS</strong></div>
                                 <div class="centrar">
                                     Somos la empresa Modern Forniture nos dedicamos a la venta de muebles online y en tienda desde 1997 para mas información o para contactar pulsa en el icono de contacto de aquí abajo
                                 </div>

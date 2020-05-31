@@ -78,5 +78,91 @@ class HomeController extends Controller
         return view('novedades');
     }
 
+    public function armarios()
+    {
+
+        return view('menu_products.armarios');
+
+    }
+    public function camas()
+    {
+
+        return view('menu_products.camas');
+
+    }
+    public function comodas()
+    {
+
+        return view('menu_products.comodas');
+
+    }
+    public function escritorios()
+    {
+
+        return view('menu_products.escritorios');
+
+    }
+    public function estanterias()
+    {
+
+        return view('menu_products.estanterias');
+
+    }
+    public function lamparas()
+    {
+
+        return view('menu_products.lamparas');
+
+    }
+    public function librerias()
+    {
+
+        return view('menu_products.librerias');
+
+    }
+    public function mesas()
+    {
+
+        return view('menu_products.mesas');
+
+    }
+    public function sillas()
+    {
+
+        return view('menu_products.sillas');
+
+    }
+    public function sillones()
+    {
+
+        return view('menu_products.sillones');
+
+    }
+    public function sofas()
+    {
+
+        return view('menu_products.sofas');
+
+    }
+    public function taburetes()
+    {
+
+        return view('menu_products.taburetes');
+
+    }
+
+
+    public function search(Request $request)
+    {
+        if($request){
+            $query=trim($request->get('search'));
+
+            $products=Producto::where('tipo_mueble','LIKE','%'.$query.'%')
+                ->orderBy('id','asc')
+                ->get();
+            return view('search',['products'=>$products, 'search'=>$query]);
+        }
+
+    }
 
 }

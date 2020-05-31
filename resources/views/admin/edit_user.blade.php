@@ -37,8 +37,8 @@
             <input class="edit-user" type="text" name="email" value="{{$user->email}}">
             <br/><br/>
 
-            <label for="password">   Contraseña: </label>
-            <input class="edit-user" type="password" name="password" value="{{$user->password}}">
+            <label for="password">   Nueva contraseña: </label>
+            <input class="edit-user" type="password" name="password">
             <br/><br/>
 
 

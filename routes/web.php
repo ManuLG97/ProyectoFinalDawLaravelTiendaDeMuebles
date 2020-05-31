@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Producto;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +23,7 @@ Route::get('/', function () {
     return view('home');
 });
 
+
 Route::get('info_product/{id}', 'HomeController@show')
     ->name('home.show');
 Route::resource('info_product','HomeController@show');
@@ -28,7 +31,11 @@ Route::resource('info_product','HomeController@show');
 Route::get('info_product/{id}', 'UserController@show')
     ->name('user.show');
 Route::resource('info_product','UserController@show');
+
 */
+
+
+Route::get("search", "HomeController@search");
 
 
 Route::get('/contact/contacto','HomeController@contactar');
@@ -37,9 +44,34 @@ Route::get('ofertas','HomeController@ofertas');
 Route::get('novedades','HomeController@novedades');
 
 
+Route::get('armarios', 'HomeController@armarios');
+Route::get('camas', 'HomeController@camas');
+Route::get('comodas', 'HomeController@comodas');
+Route::get('escritorios', 'HomeController@escritorios');
+Route::get('estanterias', 'HomeController@estanterias');
+Route::get('lamparas', 'HomeController@lamparas');
+Route::get('librerias', 'HomeController@librerias');
+Route::get('mesas', 'HomeController@mesas');
+Route::get('sillas', 'HomeController@sillas');
+Route::get('sillones', 'HomeController@sillones');
+Route::get('sofas', 'HomeController@sofas');
+Route::get('taburetes', 'HomeController@taburetes');
+
+
+
+
+
+/*
+Route::get('armarios', 'HomeController@armarios')->name('home.armarios');
+Route::resource('armarios', 'HomeController@armarios');
+*/
+
+
+
+
 
 Route::group(['middleware' => ['web']], function () {
-    return view('products.all_products');
+    return view('products_admin.all_products');
 });
 
 
@@ -53,7 +85,7 @@ Route::get('/admin/admin_home','HomeController@index');
 
 Route::resource('admin','AdminController')->middleware('auth','role:admin');
 
-Route::resource('products','ProductoController')->middleware('auth','role:admin');
+Route::resource('products_admin','ProductoController')->middleware('auth','role:admin');
 
 Route::get('create', 'ProductoController@create')->middleware('auth','role:admin');
 // agregar nombre
@@ -63,7 +95,7 @@ Route::resource('producto', 'ProductoController')->middleware('auth','role:admin
 
 
 Route::get('show', 'ProductoController@show')->middleware('auth','role:admin');
-Route::get('products.all_products', 'ProductoController@show')
+Route::get('products_admin.all_products', 'ProductoController@show')
     ->name('producto.show')->middleware('auth','role:admin');//con este llamas en la vista
 Route::resource('producto', 'ProductoController')->middleware('auth','role:admin');
 
@@ -75,8 +107,8 @@ Route::resource('admin', 'AdminController')->middleware('auth','role:admin');
 
 
 
-Route::get('products.all_products', function () {
-    return view('products.all_products', compact('products'))->middleware('auth','role:admin');
+Route::get('products_admin.all_products', function () {
+    return view('products_admin.all_products', compact('products_admin'))->middleware('auth','role:admin');
 });
 
 
@@ -108,24 +140,37 @@ Route::resource('/admin/users_info','AdminController@users');
 
 
 
-Route::resource('/products/all_products','ProductoController');
+Route::resource('/products_admin/all_products','ProductoController');
 
 
-Route::get('/products/info_product/{id}', 'ProductoController@info')
+Route::get('/products_admin/info_product/{id}', 'ProductoController@info')
     ->name('producto.info')->middleware('auth','role:admin');
-Route::resource('products.info_product','ProductoController@info');
+Route::resource('products_admin.info_product','ProductoController@info');
 
 
 
 Route::delete('/user/{id}/delete', 'AdminController@destroy')->name('admin.destroy');
 Route::resource('/admin/users_info','AdminController@users');
 
-Route::resource('/products/all_products','ProductoController@store');
-Route::resource('products','ProductoController');
+Route::resource('/products_admin/all_products','ProductoController@store');
+Route::resource('products_admin','ProductoController');
 
 
 
-Route::get('adminofertas', 'UserController@adminofertas');
-Route::get('adminnovedades', 'UserController@adminnovedades');
+Route::get('admin_ofertas', 'UserController@admin_ofertas');
+Route::get('admin_novedades', 'UserController@admin_novedades');
 
+Route::get('admin_armarios', 'UserController@admin_armarios');
+Route::get('admin_camas', 'UserController@admin_camas');
+Route::get('admin_comodas', 'UserController@admin_comodas');
+Route::get('admin_escritorios', 'UserController@admin_escritorios');
+Route::get('admin_estanterias', 'UserController@admin_estanterias');
+Route::get('admin_lamparas', 'UserController@admin_lamparas');
+Route::get('admin_librerias', 'UserController@admin_librerias');
+Route::get('admin_mesas', 'UserController@admin_mesas');
+Route::get('admin_sillas', 'UserController@admin_sillas');
+Route::get('admin_sillones', 'UserController@admin_sillones');
+Route::get('admin_sofas', 'UserController@admin_sofas');
+Route::get('admin_taburetes', 'UserController@admin_taburetes');
 
+Route::get("admin_search", "UserController@search");

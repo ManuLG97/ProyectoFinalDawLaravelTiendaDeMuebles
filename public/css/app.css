@@ -2337,8 +2337,9 @@ textarea.form-control {
 .form-grupodos {
   margin-bottom: 1vw;
   height: 10vw;
-  width:100%;
-  margin-top:1vw;
+  width: 100%;
+  margin-top: 1vw;
+  margin-left: 20vw;
 }
 
 .form-text {
@@ -2378,7 +2379,7 @@ textarea.form-control {
 .form-check-label {
   margin-bottom: 0;
   margin-left: 10px;
-  width:38vw;
+  width: 28vw;
 }
 
 .form-check-inline {

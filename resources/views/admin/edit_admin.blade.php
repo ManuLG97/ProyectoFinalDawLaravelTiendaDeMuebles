@@ -4,14 +4,31 @@
     <div class="col-lg-12">
 
         <h1 class="titulogrande">Editar</h1>
-        <form class="form-edit-user" id="perfileditar" action="{{route('user.update',$users->id)}}" method="POST">
+        <form class="form-edit-user" action="{{route('user.update',$users->id)}}" method="POST">
             @csrf
             @method('PUT')
-            <td><strong>Name:  </strong><input type="text" name="name" value="{{$users->name}}">
-                <br/><br/><strong>Telefóno:   </strong><input type="number" name="telefon" value="{{$users->telefon}}">
-                <br/><br/><strong>Dirección:   </strong><input type="text" name="address" value="{{$users->address}}">
-                <br/><br/><strong>Email:   </strong><input type="text" name="email" value="{{$users->email}}">
-                <br/><br/><strong>Contraseña: </strong><input type="password" name="password" value="{{$users->password}}">
+            <td><label for="name">  Nombre: </label>
+                <input type="text" name="name" value="{{$users->name}}">
+                <br/>
+
+                <label for="telefon">  Telefono: </label>
+                <input  type="text" name="telefon" value="{{$users->telefon}}">
+                <br/>
+
+                <label for="address">  Dirección: </label>
+                <input type="text" name="address" value="{{$users->address}}">
+                <br/>
+
+                <label for="email">  Email: </label>
+                <input  type="text" name="email" value="{{$users->email}}">
+                <br/>
+
+
+
+                <label for="password">  Nueva contraseña: </label>
+                <input  type="password" name="password">
+                <br/>
+
             </td>
             <br/><br/>
             @foreach($user as $usuario)

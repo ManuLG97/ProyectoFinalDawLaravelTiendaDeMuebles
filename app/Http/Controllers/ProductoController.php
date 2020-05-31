@@ -23,7 +23,7 @@ class ProductoController extends Controller
     {
         $user=auth()->user()->id;
         $products= Producto::all();
-        return view('products.all_products',compact('products','user'));
+        return view('products_admin.all_products',compact('products','user'));
     }
 
     /**
@@ -33,7 +33,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view("products.create_product");
+        return view("products_admin.create_product");
     }
 
     /**
@@ -78,7 +78,7 @@ class ProductoController extends Controller
 
                 }
             }
-            return view('products.all_products',compact('products','user'))->with('success','Se ha añadido un producto');
+            return view('products_admin.all_products',compact('products','user'))->with('success','Se ha añadido un producto');
         }
     }
 
@@ -95,11 +95,11 @@ class ProductoController extends Controller
         $user=auth()->user()->id;
 
 
-        return view('products.all_products',compact('products','user'));
+        return view('products_admin.all_products',compact('products','user'));
         /*
-                $products=Producto::find($id);
+                $products_admin=Producto::find($id);
                 $users=User::all();
-                return view('products.edit_product',compact('products','users'));
+                return view('products_admin.edit_product',compact('products_admin','users'));
         */
     }
     public function info($id)
@@ -114,7 +114,7 @@ class ProductoController extends Controller
             $total = count($photos);
         }
 
-        return view('products.info_product',compact('producto','photos','total','users','products'));
+        return view('products_admin.info_product',compact('producto','photos','total','users','products'));
     }
 
     /**
@@ -128,7 +128,7 @@ class ProductoController extends Controller
         $products=Producto::find($id);
         $users=User::all();
         $photos = $products->photos()->get('photo');
-        return view('products.edit_product',compact('products','users','photos'));
+        return view('products_admin.edit_product',compact('products','users','photos'));
     }
 
     /**
@@ -143,7 +143,7 @@ class ProductoController extends Controller
         $products = Producto::find($id);
 
         if($request->file('foto')){
-            $path=$request->file('foto')->store('foto','public');
+            $path=$request->file('foto')->store('fotos','public');
         }
 
         else{
@@ -179,10 +179,10 @@ class ProductoController extends Controller
 
             }
         }
-         // return redirect()->route('products.all_products');
+         // return redirect()->route('products_admin.all_products');
 
-        //  return view('products.all_products',compact('products','user')); */
-       return view('products.all_products',compact('products'));
+        //  return view('products_admin.all_products',compact('products_admin','user')); */
+       return view('products_admin.all_products',compact('products'));
 
     }
 
@@ -198,8 +198,8 @@ class ProductoController extends Controller
     {
         Producto::destroy($id);
 
-        // return redirect()->route('products.all_products')->with('success','Registro actualizado satisfactoriamente');
-        return view('products.all_products')->with('success','Registro actualizado satisfactoriamente');
+        // return redirect()->route('products_admin.all_products')->with('success','Registro actualizado satisfactoriamente');
+        return view('products_admin.all_products')->with('success','Registro actualizado satisfactoriamente');
 
         //}
     }

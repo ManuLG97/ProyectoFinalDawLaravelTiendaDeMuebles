@@ -23,10 +23,8 @@
                 <input  type="text" name="email" value="{{$users->email}}">
                 <br/>
 
-
-
-                <label for="password">   Contraseña: </label>
-                <input  type="password" name="password" value="{{$users->password}}">
+                <label for="password">  Nueva contraseña: </label>
+                <input  type="password" name="password">
                 <br/>
 
             </td>

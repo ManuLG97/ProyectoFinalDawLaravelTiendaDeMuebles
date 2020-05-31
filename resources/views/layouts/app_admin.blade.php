@@ -28,24 +28,20 @@
         <li><img src="/imagenes/iconos/menu.png" id="imgmenu" alt="Icono para abrir el menu" />
             <ul>
                 <li><a href="{{ url('admin/admin_home') }}">Inicio</a></li>
-                <li><a href="{{ url('adminofertas') }}">Oferta</a></li>
-                <li><a href="{{ url('adminnovedades') }}">Novedades</a></li>
-                <li><a href="">Armarios</a></li>
-                <li><a href="">Librerias</a></li>
-                <li><a href="">Estanterias</a></li>
-                <li><a href="">Escritorios</a></li>
-                <li><a href="">Comodas</a></li>
-                <li><a href="">Mesillas</a></li>
-                <li><a href="">Vitrinas</a></li>
-                <li><a href="">Mesas</a></li>
-                <li><a href="">Tocadores</a></li>
-                <li><a href="">Sillones</a></li>
-                <li><a href="">Sillas</a></li>
-                <li><a href="">Sofas</a></li>
-                <li><a href="">Camas</a></li>
-                <li><a href="">Taburetes</a></li>
-                <li><a href="">Tumbonas</a></li>
-                <li><a href="">Lamparas</a></li>
+                <li><a href="{{ url('admin_ofertas') }}">Oferta</a></li>
+                <li><a href="{{ url('admin_novedades') }}">Novedades</a></li>
+                <li><a href="{{ url('admin_armarios') }}">Armarios</a></li>
+                <li><a href="{{ url('admin_librerias') }}">Librerias</a></li>
+                <li><a href="{{ url('admine_stanterias') }}">Estanterias</a></li>
+                <li><a href="{{ url('admin_escritorios') }}">Escritorios</a></li>
+                <li><a href="{{ url('admin_comodas') }}">Comodas</a></li>
+                <li><a href="{{ url('admin_mesas') }}">Mesas</a></li>
+                <li><a href="{{ url('admin_sillones') }}">Sillones</a></li>
+                <li><a href="{{ url('admin_sillas') }}">Sillas</a></li>
+                <li><a href="{{ url('admin_sofas') }}">Sofas</a></li>
+                <li><a href="{{ url('admin_camas') }}">Camas</a></li>
+                <li><a href="{{ url('admin_taburetes') }}">Taburetes</a></li>
+                <li><a href="{{ url('admin_lamparas') }}">Lamparas</a></li>
             </ul>
         </li>
 
@@ -57,11 +53,17 @@
         </li>
     </div>
 
+    <!--SEARCH FORM --->
     <div>
+        <form  role="search" action="{{url('admin_search')}}">
+            <div class="form-group">
+                <input type="search" class="form-control" name='search' placeholder="Buscar mueble..." />
+                <button type="submit" class="btn btn-default">Buscar</button>
+            </div>
+
+        </form>
 
 
-
-        <input id="searchinput" type="search" placeholder="Buscar:">
     </div>
 
 
@@ -95,7 +97,7 @@
                             </a>
 
 
-                                <a class="dropdown-item" href="{{url('products/all_products')}}">
+                                <a class="dropdown-item" href="{{url('products_admin')}}">
                                     {{ __('Ver productos') }}
                                 </a>
 

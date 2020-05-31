@@ -23,11 +23,13 @@ body {
     float: right;
     width: 60%;
     text-align: left;
+    padding-left:10vw;
+
 
 }
 
 #izquierda {
-    padding-left:5vw;
+    padding-left:10vw;
     width: 40%;
     float:left;
 }
@@ -183,7 +185,7 @@ ul, ol {
 
     grid-row-start: 2;
     width: 2vw;
-
+    padding-top: 1vw;
     padding-left: 1vw;
 }
 
@@ -243,12 +245,23 @@ ul, ol {
     background-color: #a5c0bb;
     text-decoration: none;
     padding: 0.3vw;
-    margin-top:1vw;
+    margin:1vw;
     font-size: 0.9vw;
     color:black;
     text-align:center;
-    margin-bottom: 1vw;
-    width: 10vw;
+    width: 8vw;
+}
+
+.btn-primaryeliminar{
+
+    background-color: #dc3545;;
+    text-decoration: none;
+    padding: 0.3vw;
+    margin:1vw;
+    font-size: 0.9vw;
+    color:black;
+    text-align:center;
+    width: 8vw;
 }
 
 
@@ -271,7 +284,12 @@ ul, ol {
 
 .oferta {width: 15vw; display:inline-block;padding-left: 2%; margin-left:5%; margin-top:2%; border: 3px solid #a5c0bb}
 
-.vermas {display:inline-block;padding-left: 10%;}
+
+.vermas {
+    display: inline-block;
+    margin-left: 10%;
+    width: 15vw;
+}
 
 #comprassugeridas {
 
@@ -533,7 +551,7 @@ a:hover {
     .btn-primaryregistrar {
 
 
-        font-size: 1.7vw; }
+    }
 
     #sobrenosotros {font-size:1.9vw;}
     #sobrenosotros img {width:4vw}
@@ -555,8 +573,8 @@ a:hover {
 
     .btn-primary {
         margin-top: -130px;
+    }
 
-        font-size: 1.9vw; }
 
     #perfil {
         font-size:2.9vw;
@@ -598,7 +616,7 @@ a:hover {
 
 @media (max-width: 850px) {
 
-    body {background-color: grey;}
+
 
     #imglogo {
 
@@ -658,7 +676,7 @@ a:hover {
 
 @media (max-width: 767px) {
 
-    body {background-color: red; font-size:2.2vw;}
+    body {font-size:2.2vw;}
 
     .card-body {
 
@@ -690,7 +708,7 @@ a:hover {
 
     .btn-primaryregistrar {
 
-
+        width:20vw;
         font-size: 2.2vw; }
 
     #menu {
@@ -713,7 +731,7 @@ a:hover {
 
     .btn-primaryregistrar {
         text-align: center;
-        margin-left:1vw;
+
     }
 
     .btn-link {
@@ -735,7 +753,7 @@ a:hover {
 @media (max-width: 500px) {
 
     body {
-        background-color: skyblue; font-size:2.6vw;}
+       font-size:2.6vw;}
 
     .titulograndemiperfil{
 
@@ -754,7 +772,7 @@ a:hover {
     .btn-primaryregistrar {
         text-align: center;
 
-        font-size:2.6vw
+
     }
 
     .btn-link {
@@ -884,7 +902,7 @@ a:hover {
     .btn-primaryregistrar {
         text-align: center;
 
-        font-size:3.5vw
+
     }
 
     .btn-link {

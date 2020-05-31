@@ -73,7 +73,7 @@ class UserController extends Controller
             if ($role) {
                 $users=User::all();
 
-                return view('products.info_product', compact('producto', 'photos', 'total', 'users', 'products'));
+                return view('products_admin.info_product', compact('producto', 'photos', 'total', 'users', 'products'));
             } else {
                 $users=User::all();
             }
@@ -83,7 +83,7 @@ class UserController extends Controller
 
 
         /*
-             $products=Producto::all();
+             $products_admin=Producto::all();
              $producto=Producto::find($id);
              $users=User::all();
 
@@ -93,7 +93,7 @@ class UserController extends Controller
                  $total = count($photos);
              }
 
-             return view('info_product',compact('producto','photos','total','users','products'));
+             return view('info_product',compact('producto','photos','total','users','products_admin'));
         */
     }
     /**
@@ -175,11 +175,7 @@ class UserController extends Controller
 
         return view('ofertas');
     }
-    public function adminofertas()
-    {
-        return view('admin.ofertas');
 
-    }
 
     public function novedades()
     {
@@ -198,9 +194,91 @@ class UserController extends Controller
         return view('novedades');
     }
 
-    public function adminnovedades()
+
+    public function admin_ofertas()
+    {
+        return view('admin.ofertas');
+
+    }
+    public function admin_novedades()
     {
         return view('admin.novedades');
+
+    }
+
+    public function admin_armarios()
+    {
+        return view('products_admin.armarios');
+
+    }
+    public function admin_camas()
+    {
+        return view('products_admin.camas');
+
+    }
+    public function admin_comodas()
+    {
+        return view('products_admin.comodas');
+
+    }
+    public function admin_escritorios()
+    {
+        return view('products_admin.escritorios');
+
+    }
+    public function admin_estanterias()
+    {
+        return view('products_admin.estanterias');
+
+    }
+    public function admin_lamparas()
+    {
+        return view('products_admin.lamparas');
+
+    }
+    public function admin_librerias()
+    {
+        return view('products_admin.librerias');
+
+    }
+    public function admin_mesas()
+    {
+        return view('products_admin.mesas');
+
+    }
+    public function admin_sillas()
+    {
+        return view('products_admin.sillas');
+
+    }
+    public function admin_sillones()
+    {
+        return view('products_admin.sillones');
+
+    }
+    public function admin_sofas()
+    {
+        return view('products_admin.sofas');
+
+    }
+    public function admin_taburetes()
+    {
+        return view('products_admin.taburetes');
+
+    }
+
+
+    public function search(Request $request)
+    {
+        if($request){
+            $query=trim($request->get('search'));
+
+            $products=Producto::where('tipo_mueble','LIKE','%'.$query.'%')
+                ->orderBy('id','asc')
+                ->get();
+
+            return view('products_admin.search',['products'=>$products, 'search'=>$query]);
+        }
 
     }
     /**

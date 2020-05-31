@@ -52,7 +52,7 @@
                         <form action="{{route('producto.destroy',$product->id)}}" method="POST" style="">
                             @csrf
                             @method("DELETE")
-                            <button  class="btn-primaryregistrar" type="submit" onclick="if(!confirm('¿Estas segur/o que quieres borrar?')){return false;};">Eliminar</button>
+                            <button  class="btn-primaryeliminar" type="submit" onclick="if(!confirm('¿Estas segur/o que quieres borrar?')){return false;};">Eliminar</button>
                         </form>
                     </td>
             </tr>

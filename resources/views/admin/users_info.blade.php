@@ -32,15 +32,14 @@
                                     <p><strong>Telefono:   </strong>{{$user->telefon}}</p>
                                     <p><strong>Dirección:   </strong>{{$user->address}}</p>
                                     <p><strong>Email:   </strong>{{$user->email}}</p>
-                                    <p><strong>Contraseña:   </strong><input type="password" value="{{$user->password}}"></p>
                                 </td>
 
-                                <td class="tablastd"><button class="btn-primaryregistrar"><a class="" href="{{route('admin.edit',$user->id)}}">Edit</a></button></td>
+                                <td class="tablastd"><button class="btn-primaryregistrar"><a class="" href="{{route('admin.edit',$user->id)}}">Editar</a></button></td>
                                 <td class="tablastd">
                                     <form action="{{route('admin.destroy',$user->id)}}" method="POST" style="">
                                         @csrf
                                         @method("DELETE")
-                                        <button  class="btn-primaryregistrar" type="submit" onclick="if(!confirm('¿Estas segur/o que quieres borrar?')){return false;};">Delete</button>
+                                        <button  class="btn-primaryeliminar" type="submit" onclick="if(!confirm('¿Estas segur/o que quieres borrar?')){return false;};">Eliminar</button>
 
                                     </form>
 

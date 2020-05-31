@@ -30,22 +30,18 @@
                 <li><a href="{{ url('/') }}">Inicio</a></li>
                 <li><a href="{{ url('ofertas') }}">Oferta</a></li>
                 <li><a href="{{ url('novedades') }}">Novedades</a></li>
-                <li><a href="">Armarios</a></li>
-                <li><a href="">Librerias</a></li>
-                <li><a href="">Estanterias</a></li>
-                <li><a href="">Escritorios</a></li>
-                <li><a href="">Comodas</a></li>
-                <li><a href="">Mesillas</a></li>
-                <li><a href="">Vitrinas</a></li>
-                <li><a href="">Mesas</a></li>
-                <li><a href="">Tocadores</a></li>
-                <li><a href="">Sillones</a></li>
-                <li><a href="">Sillas</a></li>
-                <li><a href="">Sofas</a></li>
-                <li><a href="">Camas</a></li>
-                <li><a href="">Taburetes</a></li>
-                <li><a href="">Tumbonas</a></li>
-                <li><a href="">Lamparas</a></li>
+                <li><a href="{{ url('armarios') }}">Armarios</a></li>
+                <li><a href="{{ url('librerias') }}">Librerias</a></li>
+                <li><a href="{{ url('estanterias') }}">Estanterias</a></li>
+                <li><a href="{{ url('escritorios') }}">Escritorios</a></li>
+                <li><a href="{{ url('comodas') }}">Comodas</a></li>
+                <li><a href="{{ url('mesas') }}">Mesas</a></li>
+                <li><a href="{{ url('sillones') }}">Sillones</a></li>
+                <li><a href="{{ url('sillas') }}">Sillas</a></li>
+                <li><a href="{{ url('sofas') }}">Sofas</a></li>
+                <li><a href="{{ url('camas') }}">Camas</a></li>
+                <li><a href="{{ url('taburetes') }}">Taburetes</a></li>
+                <li><a href="{{ url('lamparas') }}">Lamparas</a></li>
             </ul>
         </li>
 
@@ -57,13 +53,18 @@
         </li>
     </div>
 
+        <!--SEARCH FORM --->
     <div>
+        <form  role="search" action="{{url('search')}}">
+            <div class="form-group">
+                <input type="search" class="form-control" name='search' placeholder="Buscar mueble..." />
+                <button type="submit" class="btn btn-default">Buscar</button>
+            </div>
+
+        </form>
 
 
-
-        <input id="searchinput" type="search" placeholder="Buscar:">
     </div>
-
 
 
 

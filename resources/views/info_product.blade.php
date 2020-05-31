@@ -74,7 +74,9 @@
 
                 </thead>
             </table>
-            <button class="btn-primaryregistrar"><a href="{{}}">Añadir al carrito</a></button>
+            <button class="btn-primaryregistrar"><a href="">Añadir a la cesta</a></button><br>
+            <button class="btn-primaryregistrar"><a href="">Comprar ya</a></button><br>
+
 
         </div>
         <br/>  <br/>

@@ -28,7 +28,7 @@ class AdminController extends Controller
         $produts= Producto::all();
         $admin=User::all();
 
-       return view('products.users_info',compact('admin','users'));
+       return view('products_admin.users_info',compact('admin','users'));
 
      //   return view('admin.admin_home',compact('admin'));
 
@@ -71,10 +71,10 @@ class AdminController extends Controller
     {
        /* $user=auth()->user()->id;
         $producto=Producto::find($id);
-        $products= Producto::all();
+        $products_admin= Producto::all();
         $name=$producto->user->name;
         $email=$producto->user->email;
-        return view('products.all_products',compact('products','user')); */
+        return view('products_admin.all_products',compact('products_admin','user')); */
     }
 
     /**
@@ -169,7 +169,7 @@ class AdminController extends Controller
     {
         User::destroy($id);
 
-        // return redirect()->route('products.all_products')->with('success','Registro actualizado satisfactoriamente');
+        // return redirect()->route('products_admin.all_products')->with('success','Registro actualizado satisfactoriamente');
         return view('admin.users_info')->with('success','Registro actualizado satisfactoriamente');
 
 
