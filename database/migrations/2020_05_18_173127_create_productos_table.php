@@ -24,7 +24,7 @@ class CreateProductosTable extends Migration
             $table->string('volum');
             $table->boolean('oferta');
             $table->bigInteger('cantidad')->unsigned();
-            $table->decimal('precio_sin_montaje',8,2);
+            $table->decimal('price',8,2);
             $table->decimal('precio_con_montaje',8,2);
             $table->boolean('fragil');
             $table->foreign('id_usuario')->references('id')->on('users')->onDelete('cascade');

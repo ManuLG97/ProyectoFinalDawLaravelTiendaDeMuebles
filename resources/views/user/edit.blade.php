@@ -35,7 +35,7 @@
                 </datalist>
             @endforeach
             <br/>
-            <input  type="submit" class="btn btn-primaryregistrar" value="Guardar cambios" onclick="if(!confirm('¿Estas segur/o que quieres modificar?')){return false;};">
+            <input  type="submit" class="btn btn-primaryregistrar" value="Guardar" onclick="if(!confirm('¿Estas segur/o que quieres modificar?')){return false;};">
             <br/>
             <br/>
         </form>

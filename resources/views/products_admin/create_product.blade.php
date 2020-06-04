@@ -13,7 +13,7 @@
             <br/>
 
             <label for="marca"> Marca  </label>
-            <input class="new-propertie" placeholder="Ejemplo: Ikea" type="text" name="marca">
+            <input class="new-propertie" id="new-propertie" placeholder="Ejemplo: Ikea" type="text" name="marca">
             <br/>
 
 
@@ -48,8 +48,8 @@
             <br/>
 
 
-            <label for="precio_sin_montaje"> Precio sin montaje</label>
-            <input class="new-price" type="number" placeholder="Ejemplo: 23.22" name="precio_sin_montaje">
+            <label for="precio_sin_montaje"> Precio</label>
+            <input class="new-price" type="number" placeholder="Ejemplo: 23.22" name="price">
             <br/>
 
 

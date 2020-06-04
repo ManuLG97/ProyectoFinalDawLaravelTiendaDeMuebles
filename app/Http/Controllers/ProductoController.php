@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Cart;
 use App\Photos;
 use App\Producto;
 use App\User;
 use Illuminate\Http\Request;
+use mysql_xdevapi\Session;
 
 class ProductoController extends Controller
 {
@@ -60,7 +62,7 @@ class ProductoController extends Controller
                 'volum'=>$request->volum,
                 'oferta'=>$request->oferta,
                 'cantidad'=>$request->cantidad,
-                'precio_sin_montaje'=>$request->precio_sin_montaje,
+                'price'=>$request->price,
                 'precio_con_montaje'=>$request->precio_con_montaje,
                 'fragil'=>$request->fragil,
                 'foto'=>$path
@@ -159,7 +161,7 @@ class ProductoController extends Controller
                 'volum'=>$request->volum,
                 'oferta'=>$request->oferta,
                 'cantidad'=>$request->cantidad,
-                'precio_sin_montaje'=>$request->precio_sin_montaje,
+                'price'=>$request->price,
                 'precio_con_montaje'=>$request->precio_con_montaje,
                 'fragil'=>$request->fragil,
                 'foto'=>$path
@@ -185,6 +187,8 @@ class ProductoController extends Controller
        return view('products_admin.all_products',compact('products'));
 
     }
+
+
 
 
 

@@ -67,7 +67,7 @@
                         <br/> <strong>Volum:   </strong> {{$producto->volum}}
                         <br/> <strong>Oferta:   </strong> {{$producto->oferta}}
                         <br/> <strong>Cantidad:   </strong> {{$producto->cantidad}}
-                        <br/> <strong>Precio sin montaje:   </strong> {{$producto->precio_sin_montaje}}
+                        <br/> <strong>Precio:   </strong> {{$producto->price}}
                         <br/> <strong>Precio con montaje:   </strong> {{$producto->precio_con_montaje}}
                         <br/> <strong>Fragil:   </strong> {{$producto->fragil}}
                     </td>

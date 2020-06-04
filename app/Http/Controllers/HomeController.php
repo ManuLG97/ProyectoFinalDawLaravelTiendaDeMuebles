@@ -34,6 +34,7 @@ class HomeController extends Controller
             return view('admin.admin_home',compact('admin'));
         }else{
             $home=Producto::all();
+
         }
         return view('user.user_home',compact('home'));
     }
@@ -158,6 +159,8 @@ class HomeController extends Controller
             $query=trim($request->get('search'));
 
             $products=Producto::where('tipo_mueble','LIKE','%'.$query.'%')
+                ->orWhere('nombre_producto','LIKE','%'.$query.'%')
+                ->orWhere('descripcion','LIKE','%'.$query.'%')
                 ->orderBy('id','asc')
                 ->get();
             return view('search',['products'=>$products, 'search'=>$query]);

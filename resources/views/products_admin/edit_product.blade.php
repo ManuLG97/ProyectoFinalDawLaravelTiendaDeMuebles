@@ -52,9 +52,9 @@
             <input class="text-info" type="number" name="cantidad" value="{{$products->cantidad}}">
             <br/>
 
-            <label for="precio_sin_montaje"> Precio sin montaje: </label>
+            <label for="precio_sin_montaje"> Precio: </label>
 
-            <input class="valid" type="number" name="precio_sin_montaje" value="{{$products->precio_sin_montaje}}" class="form form-control">
+            <input class="valid" type="number" name="price" value="{{$products->price}}" class="form form-control">
             <br/>
 
             <label for="precio_con_montaje"> Precio con montaje: </label>

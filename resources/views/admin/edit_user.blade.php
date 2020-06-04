@@ -44,7 +44,7 @@
 
 
             <br/>
-            <input class="btn btn-primaryregistrar" type="submit"  value="Guardar cambios" onclick="if(!confirm('¿Estas segur/o que quieres modificar?')){return false;};">
+            <input class="btn btn-primaryregistrar" type="submit"  value="Guardar" onclick="if(!confirm('¿Estas segur/o que quieres modificar?')){return false;};">
             <br/>
             <br/>
         </form>

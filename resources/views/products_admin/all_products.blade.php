@@ -24,7 +24,7 @@
             $products=\App\Producto::all();
             ?>
             <tr>   <td class="tablastdtitulo">Foto</td> <td class="tablastdtitulo">Nombre</td> <td class="tablastdtitulo">Marca</td> <td class="tablastdtitulo">Tipo mueble</td> <td class="tablastdtitulo">Descripción</td> <td class="tablastdtitulo">Dimensiones</td>
-                <td class="tablastdtitulo">Volum</td> <td class="tablastdtitulo">Oferta</td> <td class="tablastdtitulo">Cantidad</td> <td class="tablastdtitulo">Precio sin montaje</td> <td class="tablastdtitulo">Precio con montaje</td>
+                <td class="tablastdtitulo">Volum</td> <td class="tablastdtitulo">Oferta</td> <td class="tablastdtitulo">Cantidad</td> <td class="tablastdtitulo">Precio</td> <td class="tablastdtitulo">Precio con montaje</td>
                 <td class="tablastdtitulo">Fragil</td> <td class="tablastdtitulo">Editar</td> <td class="tablastdtitulo">Eliminar</td>   <tr>
                 @foreach($products as $product)
                     <td class="tablastd"><br/><br/>
@@ -41,7 +41,7 @@
                     <td class="tablastd">   <br/>{{$product->volum}}  </td>
                     <td class="tablastd">   <br/>{{$product->oferta}}  </td>
                     <td class="tablastd">   <br/>{{$product->cantidad}}  </td>
-                    <td class="tablastd">   <br/>{{$product->precio_sin_montaje}}  </td>
+                    <td class="tablastd">   <br/>{{$product->price}}  </td>
                     <td class="tablastd">    <br/>{{$product->precio_con_montaje}}  </td>
                     <td class="tablastd" >   <br/>{{$product->fragil}}
 

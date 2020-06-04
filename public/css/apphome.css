@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
 
+a:active, a:active * { outline: none !important; -moz-outline-style: none !important; }
+a:focus, a:focus * { outline: none !important; -moz-outline-style: none !important; }
+
 html {
     min-height: 100%;
     position:relative;
@@ -12,6 +15,12 @@ body {
     margin:0;
     margin-bottom:3vw;
     font-family: 'Raleway', sans-serif;
+}
+
+
+
+.contactomargin {
+    margin-bottom: 5vw;
 }
 
 #contenedor {
@@ -95,7 +104,7 @@ footer img {
     font-size:1.0vw;
     height: 3.2vw;
     display: grid;
-    grid-gap: 5vh;
+    grid-gap:12vw;
     grid-template-rows: repeat(1,8%);
     grid-template-columns: repeat(5, 1fr);
     grid-auto-flow: row dense;
@@ -180,14 +189,26 @@ ul, ol {
 
 }
 
+#buscador {
+    display: inline-block;
+}
+
 
 #imgmenu {
 
-    grid-row-start: 2;
+
     width: 2vw;
     padding-top: 1vw;
     padding-left: 1vw;
 }
+
+#imgbuscar {
+
+
+    width: 1vw;
+
+}
+
 
 #imguser {
     width:1.7vw;
@@ -207,12 +228,15 @@ ul, ol {
 
 #searchinput {
     font-size:1.2vw;
-    border-radius:60px;
+    border-radius:10px;
+
+    width:7vw;
     margin-top:1vh;
     outline:none;}
 
 .imagenessugeridas {
-    width:11vw;
+    width:15vw;
+    height:13vw;
 
 }
 
@@ -236,7 +260,7 @@ ul, ol {
 }
 
 #imgcarro {
-    padding-top:0.5vw;
+
     width: 2vw;
 }
 
@@ -245,11 +269,11 @@ ul, ol {
     background-color: #a5c0bb;
     text-decoration: none;
     padding: 0.3vw;
-    margin:1vw;
+    margin: 1vw;
     font-size: 0.9vw;
     color:black;
     text-align:center;
-    width: 8vw;
+    width: 10vw;
 }
 
 .btn-primaryeliminar{
@@ -282,14 +306,16 @@ ul, ol {
     width: 45vw;
 }
 
-.oferta {width: 15vw; display:inline-block;padding-left: 2%; margin-left:5%; margin-top:2%; border: 3px solid #a5c0bb}
-
+.oferta {width: 19vw;  display:inline-block;padding-left: 2%; margin-left:5%; margin-top:2%; border: 3px solid #a5c0bb}
 
 .vermas {
     display: inline-block;
-    margin-left: 10%;
+    margin-top:1vw;
+    margin-left:3vw;
     width: 15vw;
 }
+
+
 
 #comprassugeridas {
 
@@ -297,14 +323,14 @@ ul, ol {
     display:inline-block;
 
 
-    font-size:2.0vw;
+    font-size:1.0vw;
 }
 
 #sobrenosotros {
 
     max-width:100%;
     margin-top:2%;
-
+    margin-bottom: 7vw;
     font-size:1.7vw;
     text-align: center;
 
@@ -362,20 +388,17 @@ ul, ol {
     font-size:1.9vw;
 }
 
-.imagenessugerencias {
-    width: 20vw;
 
-}
 
 
 
 
 #titulo {
 
+    margin-left:5vw;
+    font-size:2vw;
+    padding-top:1vw;
 
-    font-size:1.4vw;
-    padding-top: 3vw;
-    padding-left:2vw;
 }
 
 a:hover {
@@ -480,7 +503,7 @@ a:hover {
 
     #menu {
 
-        grid-gap:4.8vw;
+
         font-size: 1.1vw;
     }
 
@@ -532,6 +555,15 @@ a:hover {
         width:2.3vw;
     }
 
+
+    #imgbuscar {
+
+
+        width:2vw;
+
+    }
+
+
     #imglogo {
         height: 3.8vw;
         width: 4vw;
@@ -544,24 +576,35 @@ a:hover {
 
     }
 
-    #sobrenosotros img {
-        margin-bottom:3vw;
-    }
-
-    .btn-primaryregistrar {
-
-
+    footer {
+        min-height:4vw ;
     }
 
     #sobrenosotros {font-size:1.9vw;}
-    #sobrenosotros img {width:4vw}
-    #comprassugeridas {font-size:1.9vw;}
+    #sobrenosotros img {width:6vw}
+    #comprassugeridas {font-size:2.3vw;}
+
+    .oferta {width: 24vw; }
+
+    .imagenessugeridas {
+        width: 18vw;
+        height: 15vw;
+    }
+
+
 }
 
 
 @media (max-width: 1000px) {
 
+    label {
+        margin-left:2vw;
+    }
 
+    .form-control {
+
+        margin-left:2vw;
+    }
 
     .titulogrande {
         font-size:3.5vw;
@@ -582,17 +625,23 @@ a:hover {
 
     #imglogo {
         height: 3.9vw;
-        width:7vw;
+        width:6vw;
     }
 
     footer img {
         width:4vw;
     }
 
+    .form-group {
+        font-size:2vw;
+    }
+
+    .form-control {font-size: 2vw; height: 5vw;}
+
 
     #menu {
         height: 3.9vw;
-        grid-gap:5.5vw;
+        grid-gap:9vw;
         font-size: 1.1vw;
     }
 
@@ -602,7 +651,7 @@ a:hover {
 
     .card-body {
 
-        min-height: 29vw;
+        min-height:35vw;
     }
 
     .titulograndemiperfil{
@@ -611,10 +660,15 @@ a:hover {
         margin-top: 6.6vw;
     }
 
+    .btn-primaryregistrar {font-size:1.7vw;}
+
+
+
 }
 
 
 @media (max-width: 850px) {
+
 
 
 
@@ -635,8 +689,14 @@ a:hover {
         width: 3vw;
     }
 
+
+
+    #imgbuscar {
+        width:2vw;
+    }
+
     #imgcarro {
-        height: 5vw;
+        height: 4vw;
         width: 4vw;
     }
 
@@ -649,8 +709,10 @@ a:hover {
     #searchinput {
         font-size:1.5vw;
         border-radius:60px;
-        margin-top:1vh;
-        outline:none;}
+        margin-top:2vw;
+        outline:none;
+
+    }
 
     .botonverde {
         font-size:1.8vw;
@@ -668,6 +730,15 @@ a:hover {
     #noticias {
         margin-top:9vw;
     }
+
+    .list-group {
+        margin-top: 9vw;
+    }
+
+    #sobrenosotros img {
+        margin-bottom:6vw;
+    }
+
 }
 
 
@@ -680,9 +751,11 @@ a:hover {
 
     .card-body {
 
-        min-height:52vw;
+        min-height:58vw;
     }
 
+    .list-group {
+        margin-top:14vw; }
 
     #imglogo {
 
@@ -694,6 +767,7 @@ a:hover {
         width:3vw;
     }
 
+
     #imgmenu{
         margin-top:1vw;
         height: 3vw;
@@ -701,7 +775,7 @@ a:hover {
     }
 
     #imgcarro {
-        height: 5vw;
+        height: 4vw;
         width: 4vw;
     }
 
@@ -709,11 +783,11 @@ a:hover {
     .btn-primaryregistrar {
 
         width:20vw;
-        font-size: 2.2vw; }
+        font-size: 2.8vw; }
 
     #menu {
         height: 6.2vw;
-        grid-gap:10.5vw;
+        grid-gap:8.5vw;
         font-size: 1.9vw;
     }
 
@@ -737,7 +811,7 @@ a:hover {
     .btn-link {
         text-align: center;
         margin-left:1vw;
-        font-size:1.9vw;
+        font-size:1.3vw;
     }
 
     #searchinput {
@@ -745,6 +819,11 @@ a:hover {
         border-radius:60px;
         margin-top:1vh;
         outline:none;}
+
+
+
+
+
 }
 
 
@@ -753,13 +832,15 @@ a:hover {
 @media (max-width: 500px) {
 
     body {
-       font-size:2.6vw;}
+        font-size:2.6vw;}
 
     .titulograndemiperfil{
 
         font-size:5vw;
 
     }
+
+
 
     #imgnoticiasuno  {
         margin-top:10vw;
@@ -781,15 +862,11 @@ a:hover {
         font-size:2.6vw
     }
 
-    .card-body {
-
-
-    }
 
 
     #menu {
         height: 10vw;
-        grid-gap:3.8vw;
+        grid-gap:2.8vw;
         font-size: 2.8vw;
     }
 
@@ -799,10 +876,6 @@ a:hover {
         margin-top:1.5vw;
     }
 
-    #imgcarro {
-        margin-top:1.5vw;
-
-    }
 
 
 
@@ -811,17 +884,14 @@ a:hover {
         width:11vw;
     }
     #sobrenosotros {font-size:2.9vw;}
-    #sobrenosotros img {width:9vw}
-    #comprassugeridas {font-size:2.9vw;}
-    #titulo {font-size:3.1vw;}
-    .oferta {
-        width:20vw;
-    }
+    #sobrenosotros img {width:9vw; margin-bottom: 11vw;}
+
 
 
 
     #searchinput {
         font-size:2.6vw;
+        width:10vw;
         border-radius:60px;
         margin-top:0.7vh;
         outline:none;}
@@ -863,31 +933,33 @@ a:hover {
         width: 8vw;
     }
 
-    .imagenessugeridas{
-        width:14vw;
-    }
-}
-
-@media (max-width:430px) {
-
-
-
-    .card-body {
-
-        min-height:80vw;
+    .form-group {
+        font-size:3.2vw;
     }
 
+    .form-control {font-size: 3.2vw; height: 5vw;}
+
 }
+
 
 @media (max-width:380px) {
 
 
+    .imagenessugeridas {
+
+        width: 33vw;
+        height: 31vw;
+    }
+
     #imguser {
         width:4vw;
     }
+    #titulo {
+        font-size: 3vw;
+    }
 
     body {
-        font-size:3.5vw;
+        font-size:3.6vw;
     }
 
     #searchinput {
@@ -896,7 +968,7 @@ a:hover {
 
     .card-body {
 
-        min-height:95vw;
+        min-height:65vw;
     }
 
     .btn-primaryregistrar {
@@ -905,9 +977,30 @@ a:hover {
 
     }
 
+    .oferta { width: 42vw;
+        padding:3vw;}
+
+    .form-group {
+        font-size:2.9vw;
+    }
+
+    .btn-primaryregistrar {
+
+        width:20vw;
+        font-size: 3.2vw; }
+
+    .form-control {font-size: 2.9vw; height: 5vw;}
+
     .btn-link {
         text-align: center;
 
-        font-size:2.8vw
+        font-size:3vw
     }
+
+    footer {
+        font-size: 3vw;
+    }
+
+    #sobrenosotros img {width:9vw; margin-bottom: 25vw;}
+
 }

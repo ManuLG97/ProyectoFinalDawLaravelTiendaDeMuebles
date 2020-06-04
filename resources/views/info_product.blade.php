@@ -51,7 +51,6 @@
             <h1 class="titulogandreinformacion"><strong>Información producto</strong></h1><br/>
             @csrf
 
-
             @csrf
             @method('PUT')
             <table class="table_info">
@@ -65,8 +64,7 @@
                         <br/> <strong>Descripción:   </strong> {{$producto->descripcion}}
                         <br/> <strong>Dimensiones:   </strong> {{$producto->dimensiones}}
                         <br/> <strong>Volum:   </strong> {{$producto->volum}}
-                        <br/> <strong>Cantidad:   </strong> {{$producto->cantidad}} se debe modificar la cantidad
-                        <br/> <strong>Precio sin montaje:   </strong> {{$producto->precio_sin_montaje}} €
+                        <br/> <strong>Precio:   </strong> {{$producto->price}} €
                         <br/> <strong>Precio con montaje:   </strong> {{$producto->precio_con_montaje}} €
 
                     </td>
@@ -74,8 +72,7 @@
 
                 </thead>
             </table>
-            <button class="btn-primaryregistrar"><a href="">Añadir a la cesta</a></button><br>
-            <button class="btn-primaryregistrar"><a href="">Comprar ya</a></button><br>
+                <a href="{{route('product.addToCart',['id'=>$producto->id])}}"><button type="submit" class="btn-primaryregistrar">Añadir a la cesta</button><br></a>
 
 
         </div>

@@ -268,19 +268,25 @@ class UserController extends Controller
     }
 
 
+
+
     public function search(Request $request)
     {
         if($request){
             $query=trim($request->get('search'));
 
             $products=Producto::where('tipo_mueble','LIKE','%'.$query.'%')
+                ->orWhere('nombre_producto','LIKE','%'.$query.'%')
+                ->orWhere('descripcion','LIKE','%'.$query.'%')
                 ->orderBy('id','asc')
                 ->get();
-
             return view('products_admin.search',['products'=>$products, 'search'=>$query]);
         }
 
     }
+
+
+
     /**
      * Remove the specified resource from storage.
      *

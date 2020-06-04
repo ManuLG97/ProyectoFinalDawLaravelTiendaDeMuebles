@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
     protected $fillable = ['id_usuario', 'nombre_producto','marca', 'tipo_mueble','descripcion','dimensiones',
-        'volum','oferta','cantidad','precio_sin_montaje','precio_con_montaje','fragil','foto'
+        'volum','oferta','cantidad','price','precio_con_montaje','fragil','foto'
     ];
 
     public function users(){
@@ -43,6 +43,14 @@ class Producto extends Model
     {
         if($descripcion)
             return $query->where('descripcion','LIKE',"%$descripcion%");
+    }
+
+
+
+    public function scopeMightAlsoLike($query)
+    {
+
+            return $query->inRandomOrder()->store(4);
     }
 
 }
