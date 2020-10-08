@@ -52,6 +52,23 @@ class ProductoController extends Controller
         $user_info=User::find($user_id);
         $role=$user_info->hasRole("admin");
         if($role){
+
+            $this->validate($request,[
+                'nombre_producto'=> 'required',
+                'marca'=> 'required',
+                'tipo_mueble'=> 'required',
+                'descripcion'=> 'required',
+                'dimensiones'=> 'required',
+                'volum'=> 'required',
+                'oferta'=> 'required',
+                'cantidad'=> 'required',
+                'price'=> 'required',
+                'precio_con_montaje'=>'required',
+                'fragil'=> 'required',
+                'foto'=> 'required'
+
+            ]);
+
             $path=$request->file('foto')->store('fotos','public');
             $producto=Producto::create(['id_usuario'=>$user_id,
                 'nombre_producto'=>$request->nombre_producto,
@@ -98,11 +115,7 @@ class ProductoController extends Controller
 
 
         return view('products_admin.all_products',compact('products','user'));
-        /*
-                $products_admin=Producto::find($id);
-                $users=User::all();
-                return view('products_admin.edit_product',compact('products_admin','users'));
-        */
+
     }
     public function info($id)
     {
@@ -129,6 +142,7 @@ class ProductoController extends Controller
     {
         $products=Producto::find($id);
         $users=User::all();
+
         $photos = $products->photos()->get('photo');
         return view('products_admin.edit_product',compact('products','users','photos'));
     }
@@ -151,6 +165,22 @@ class ProductoController extends Controller
         else{
             $path=$products['foto'];
         }
+
+
+        $this->validate($request,[
+            'nombre_producto'=> 'required',
+            'marca'=> 'required',
+            'tipo_mueble'=> 'required',
+            'descripcion'=> 'required',
+            'dimensiones'=> 'required',
+            'volum'=> 'required',
+            'oferta'=> 'required',
+            'cantidad'=> 'required',
+            'price'=> 'required',
+            'precio_con_montaje'=>'required',
+            'fragil'=> 'required'
+        ]);
+
 
             $products->update([
                 'nombre_producto'=>$request->nombre_producto,
@@ -181,9 +211,7 @@ class ProductoController extends Controller
 
             }
         }
-         // return redirect()->route('products_admin.all_products');
 
-        //  return view('products_admin.all_products',compact('products_admin','user')); */
        return view('products_admin.all_products',compact('products'));
 
     }
@@ -201,10 +229,6 @@ class ProductoController extends Controller
     public function destroy($id)
     {
         Producto::destroy($id);
-
-        // return redirect()->route('products_admin.all_products')->with('success','Registro actualizado satisfactoriamente');
         return view('products_admin.all_products')->with('success','Registro actualizado satisfactoriamente');
-
-        //}
     }
 }

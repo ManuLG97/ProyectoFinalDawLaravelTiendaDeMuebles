@@ -8,23 +8,23 @@
             @csrf
             @method('PUT')
             <td><label for="name">  Nombre: </label>
-                <input type="text" name="name" value="{{$users->name}}">
+                <input type="text" name="name" value="{{$users->name}}" required oninvalid="this.setCustomValidity('Por favor rellene este campo')" oninput="setCustomValidity('')">
                 <br/>
 
                 <label for="telefon">  Telefono: </label>
-                <input  type="text" name="telefon" value="{{$users->telefon}}">
+                <input  type="text" name="telefon" value="{{$users->telefon}}" required oninvalid="this.setCustomValidity('Por favor rellene este campo')" oninput="setCustomValidity('')">
                 <br/>
 
                 <label for="address">  Dirección: </label>
-                <input type="text" name="address" value="{{$users->address}}">
+                <input type="text" name="address" value="{{$users->address}}" required oninvalid="this.setCustomValidity('Por favor rellene este campo')" oninput="setCustomValidity('')">
                 <br/>
 
                 <label for="email">  Email: </label>
-                <input  type="text" name="email" value="{{$users->email}}">
+                <input  type="text" name="email" value="{{$users->email}}" required oninvalid="this.setCustomValidity('Por favor rellene este campo')" oninput="setCustomValidity('')">
                 <br/>
 
                 <label for="password">  Nueva contraseña: </label>
-                <input  type="password" name="password">
+                <input  type="password" name="password" required oninvalid="this.setCustomValidity('Por favor rellene este campo')" oninput="setCustomValidity('')">
                 <br/>
 
             </td>

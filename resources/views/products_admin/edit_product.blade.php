@@ -3,10 +3,14 @@
 @section('content')
     <div class="col-lg-12">
 
-        <h1 class="my-5">Editar producto</h1>
+        <h1 class="my-5">Editar producto</h1>  <p>Todos los campos son obligatorios</p>
+        @php
+           // dd($errors);
+        @endphp
 
-        @if(count($errors)>0)
+        @if($errors->any())
             <div class="alert alert-danger">
+                <h6>Por favor corrige las siguientes errores: </h6>
                 <ul>
                     @foreach($errors->all() as $error)
                         <li>{{$error}}</li>

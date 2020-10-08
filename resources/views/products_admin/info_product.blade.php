@@ -4,6 +4,36 @@
 
     <div id="contenedor">
         <div id="izquierda">
+            <h2 class="titulogandreinformacion"><strong>Información producto</strong></h2><br/>
+            @csrf
+
+
+            @csrf
+            @method('PUT')
+            <table>
+                <thead>
+
+                <tr>
+                    <td class="textoizquierda">
+                        <strong>Nombre:   </strong> {{$producto->nombre_producto}}
+                        <br/> <strong>Marca:   </strong> {{$producto->marca}}
+                        <br/> <strong>Tipo mueble:   </strong> {{$producto->tipo_mueble}}
+                        <br/> <strong>Descripción:   </strong> {{$producto->descripcion}}
+                        <br/> <strong>Dimensiones:   </strong> {{$producto->dimensiones}}
+                        <br/> <strong>Volum:   </strong> {{$producto->volum}}
+                        <br/> <strong>Oferta:   </strong> {{$producto->oferta}}
+                        <br/> <strong>Cantidad:   </strong> {{$producto->cantidad}}
+                        <br/> <strong>Precio:   </strong> {{$producto->price}}
+                        <br/> <strong>Precio con montaje:   </strong> {{$producto->precio_con_montaje}}
+                        <br/> <strong>Fragil:   </strong> {{$producto->fragil}}
+                    </td>
+                </tr>
+
+                </thead>
+            </table>
+        </div>
+
+        <div id="derecha">
 
             <section class="product_style">
                 @if($photos)
@@ -47,36 +77,21 @@
 
                     </div>
         </div>
-        <div id="derecha">
-            <h1 class="titulogandreinformacion"><strong>Información producto</strong></h1><br/>
-            @csrf
 
-
-            @csrf
-            @method('PUT')
-            <table class="table_info">
-                <thead>
-
-                <tr>
-                    <td class="textoizquierda">
-                        <strong>Nombre:   </strong> {{$producto->nombre_producto}}
-                        <br/> <strong>Marca:   </strong> {{$producto->marca}}
-                        <br/> <strong>Tipo mueble:   </strong> {{$producto->tipo_mueble}}
-                        <br/> <strong>Descripción:   </strong> {{$producto->descripcion}}
-                        <br/> <strong>Dimensiones:   </strong> {{$producto->dimensiones}}
-                        <br/> <strong>Volum:   </strong> {{$producto->volum}}
-                        <br/> <strong>Oferta:   </strong> {{$producto->oferta}}
-                        <br/> <strong>Cantidad:   </strong> {{$producto->cantidad}}
-                        <br/> <strong>Precio:   </strong> {{$producto->price}}
-                        <br/> <strong>Precio con montaje:   </strong> {{$producto->precio_con_montaje}}
-                        <br/> <strong>Fragil:   </strong> {{$producto->fragil}}
-                    </td>
-                </tr>
-
-                </thead>
-            </table>
-        </div>
         <br/>  <br/>
     </div>
     </div>
+
+    <div class="comentarios2">
+        @if(\Illuminate\Support\Facades\Auth::guest())
+            Porvafor inicia sesion para comentar.
+        @else
+            <div class="comentarios">
+                <br> <h3><strong>Comentarios</strong></h3>
+                <button class="btn-primaryregistrar"> <a href="{{route('comments.show',$producto->id)}}">Ver todos los comentarios</a></button>
+            </div>
+
+        @endif
+    </div>
+
 @endsection

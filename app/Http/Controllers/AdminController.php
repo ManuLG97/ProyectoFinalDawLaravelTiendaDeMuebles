@@ -29,10 +29,6 @@ class AdminController extends Controller
         $admin=User::all();
 
        return view('products_admin.users_info',compact('admin','users'));
-
-     //   return view('admin.admin_home',compact('admin'));
-
-
     }
 
     public function users()
@@ -69,12 +65,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-       /* $user=auth()->user()->id;
-        $producto=Producto::find($id);
-        $products_admin= Producto::all();
-        $name=$producto->user->name;
-        $email=$producto->user->email;
-        return view('products_admin.all_products',compact('products_admin','user')); */
+        //
     }
 
     /**
@@ -86,7 +77,7 @@ class AdminController extends Controller
     public function edit($id)
     {
         $user=User::find($id);
-       // $usuario=User::all();
+
         return view('admin.edit_user',compact('user'));
     }
 
@@ -104,6 +95,7 @@ class AdminController extends Controller
      //  dd($request->all());
      // dd($user);
 
+
         $user->update(['name' => $request->name,
             'telefon' => $request->telefon,
             'address' => $request->address,
@@ -112,33 +104,11 @@ class AdminController extends Controller
 
         ]);
 
-
-      // return redirect()->route('admin.users_info')->with('success','Registro actualizado satisfactoriamente');
        return view('admin.users_info')->with('toast','Registro actualizado satisfactoriamente');
 
     }
 
-  /*   $this->validate($request,[
-         'name' => 'required',
-         'telefon' => 'required',
-         'address' => 'required',
-         'email' => 'required',
-         //   'password' => bcrypt($request->password),
-         'password' =>'required',
-     ]);
-        $user = User::find($id);
-        $user->name=$request->get('name');
-        $user->telefon=$request->get('telefon');
-        $user->address=$request->get('address');
-        $user->email=$request->get('email');
-        $user->password=$request->get('password');
-        $user->save();
 
-
-
-       return redirect()->route('admin.users_info')->with('success','Registro actualizado satisfactoriamente');
-    }
-*/
 
     public function contactar()
     {
@@ -168,8 +138,6 @@ class AdminController extends Controller
     public function destroy($id)
     {
         User::destroy($id);
-
-        // return redirect()->route('products_admin.all_products')->with('success','Registro actualizado satisfactoriamente');
         return view('admin.users_info')->with('success','Registro actualizado satisfactoriamente');
 
 

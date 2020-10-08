@@ -23,10 +23,29 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/artisan/storage', function() {
+    $command = 'storage:link';
+    $result = Artisan::call($command);
+    return Artisan::output();
+});
+
+
 
 Route::get('info_product/{id}', 'HomeController@show')
     ->name('home.show');
 Route::resource('info_product','HomeController@show');
+
+
+//comentarios
+Route::get('comments/{id}', 'CommentsController@show')
+    ->name('comments.show');
+Route::resource('comments','CommentsController@show');
+
+Route::post('comments/{id}',
+    ['uses'=>'CommentsController@store', 'as'=>'comments.store']
+);
+
+Route::delete('/comments/{id}/delete', 'CommentsController@destroy')->name('comments.destroy');
 
 
 
@@ -57,24 +76,10 @@ Route::get('taburetes', 'HomeController@taburetes');
 
 
 
-//Route::resource('cart', 'CartController@index');
 Route::get('cart', 'CartController@index')->name('cart.index');
-//Route::resource('product', 'CartController@index');
 
 
 Route::post('cart', 'CartController@add')->name('cart.add');
-
-//Route::get('cart', 'CartController@store')->name('cart.store');
-
-
-
-/*
-Route::get('armarios', 'HomeController@armarios')->name('home.armarios');
-Route::resource('armarios', 'HomeController@armarios');
-*/
-
-
-
 
 
 Route::group(['middleware' => ['web']], function () {
@@ -91,15 +96,9 @@ Route::get('/add-to-cart/{id}',[
 ])->middleware('auth','role:user');
 
 
-
-
-
-
-
-
-
-
-
+Route::get('/add-to-cart-product/{id}',[
+    'uses'=>'CartController@getAddToCartProduct'
+])->middleware('auth','role:user');
 
 
 
@@ -114,14 +113,42 @@ Route::get('/checkout',[
     'as'=>'checkout'
 ])->middleware('auth','role:user');
 
-//Route::get('info_product', 'HomeController@show')->name('home.show');
+
+Route::get('/remove',[
+    'uses'=>'CartController@removeAllItems',
+    'as'=>'product.remove'
+])->middleware('auth','role:user');
 
 
-Route::get('/shopping-cart-delete','CartController@destroy');
-
-Route::resource('/shopping-cart-delete','CartController');
 
 
+Route::get('shopping-delete-product','CartController@destroy');
+
+Route::resource('shopping-delete-product','CartController');
+
+
+
+Route::get('/shopping-cart-delete','UserController@destroy');
+
+Route::resource('/shopping-cart-delete','UserController');
+
+
+
+
+Route::get('/invoice/', 'FacturaController@index')->name('factura.index');
+Route::post('/invoice/', 'FacturaController@store')->name('factura.store');
+
+
+
+/*
+ *
+    Route::get('/post/{post}', 'PostController@show')->name('posts.show');
+    Route::post('/post/{post}/comment', 'CommentController@store')->name('comments.store');
+Route::name('create_comment_path')->post('/info_product/{post}','PostController@store')->middleware('auth','role:user');
+
+
+Route::name('create_comment_path')->post('/info_product/{post}/coments','PostComentsController@create')->middleware('auth','role:user');
+*/
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('user','UserController')->middleware('auth','role:user');

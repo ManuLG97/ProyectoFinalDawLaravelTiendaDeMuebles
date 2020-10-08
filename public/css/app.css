@@ -10,7 +10,7 @@
 
 
 label {
-    width:13vw;
+    width:15vw;
 }
 
 :root {
@@ -105,6 +105,7 @@ h5,
 h6 {
     margin-top: 0;
     margin-bottom: 0.5rem;
+    margin-top: 2vw;
 }
 
 
@@ -284,9 +285,7 @@ input {
     overflow: visible;
 }
 
-input {width:80%;
-    text-align: center;
-}
+
 
 button,
 select {
@@ -2181,10 +2180,11 @@ pre code {
     border: 0;
 }
 
+
 .form-control {
     margin-top:0.5vw;
     height: 2vw;
-    padding: 0.375rem 0.75rem;
+    width: 60%;
     font-size: 1vw;
     font-weight: 400;
     line-height: 1.6;
@@ -2347,7 +2347,6 @@ textarea.form-control {
     height: 10vw;
     width: 100%;
     margin-top: 1vw;
-    margin-left: 20vw;
 }
 
 .form-text {
@@ -2372,11 +2371,11 @@ textarea.form-control {
     position: relative;
     display: block;
     padding-top:1vw;
-    padding-left: 10.25vw;
+
 }
 
 .form-check-input {
-    width:3vw;
+
 }
 
 .form-check-input[disabled] ~ .form-check-label,
@@ -5021,15 +5020,21 @@ input[type=button].btn-block {
 
 
 
+.cardlogin {
+    margin-left: 29vw;
+}
+
+
+
 .card {
 
 
     flex-direction: column;
-    min-width: 10vw;
+    min-width: 40vw;
     margin-top: 8vw;
     margin-bottom: 7vw;
-    margin-right: 6vw;
-    margin-left: 6vw;
+    margin-right: 29vw;
+
     padding-bottom:2vw;
     background-color: #fff;
     background-clip: border-box;
@@ -5037,21 +5042,7 @@ input[type=button].btn-block {
     border-radius: 0.25vw;
 }
 
-.cardl {
 
-
-    flex-direction: column;
-    min-width: 10vw;
-    margin-top: 8vw;
-    margin-bottom: 7vw;
-    margin-right: 20vw;
-    margin-left: 20vw;
-    padding-bottom:2vw;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25vw;
-}
 
 .card > hr {
     margin-right: 0;
@@ -5416,6 +5407,8 @@ input[type=button].btn-block {
     vertical-align: baseline;
     border-radius: 0.25rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-left: 0.7vw;
+    position: absolute;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -8604,7 +8597,7 @@ button.bg-dark:focus {
 
 .mt-5,
 .my-5 {
-    margin-top: 6vw !important;
+    margin-top: 8vw !important;
     width: 100%;
     text-align: center;
 }

@@ -17,7 +17,28 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+input[type=number]::-webkit-outer-spin-button,
 
+input[type=number]::-webkit-inner-spin-button {
+
+    -webkit-appearance: none;
+
+    margin: 0;
+
+}
+
+textarea:disabled {
+    color:black;
+
+}
+
+input[type=number] {
+
+    -moz-appearance:textfield;
+
+}
+
+p {text-align: center;}
 
 .contactomargin {
     margin-bottom: 5vw;
@@ -33,16 +54,128 @@ body {
     width: 60%;
     text-align: left;
     padding-left:10vw;
+    padding-top:2vw;
+}
+
+.form-control2 {
+    margin-top:0.5vw;
+    height: 2vw;
+    padding: 0.375rem 0.75rem;
+    font-size: 1vw;
+    font-weight: 400;
+    line-height: 1.6;
+    width:19vw;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.numtarjeta{width: 10vw;}
+
+.form-control3{
+    margin-top:0.5vw;
+    height: 2vw;
+    padding: 0.375rem 0.75rem;
+    font-size: 1vw;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    width: 5vw;
+
+}
+
+.form-control4{
+    margin-top:0.5vw;
+    height: 2vw;
+    padding: 0.375rem 0.75rem;
+    font-size: 1vw;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    width: 6vw;
+}
+
+.row2{
+    margin-left: 5vw;
+    width: 50%;
+}
+
+.col7{
+    padding:2vw;
+    background-color: white;
+}
+
+.address1{
+    width: 8vw;
+}
+.address2{
+    width: 3vw;
+    margin-left: 2vw;
+}
+
+.address3{
+    width: 3vw;
+    margin-left: 1vw;
+}
+#imgcard{
+    width: 5vw;
+    height: 3vw;
+}
+
+.offset-34{
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-top:5%;
+
+}
+.datos{margin-top: 5%; font-size: 1.5vw;}
 
 
+
+.rowcheck{width: 50vw;
+    margin-top: 5vw;
+    margin-left: 25vw;
+    background-color: lavender}
+
+#numcar
+{
+    position: absolute;
+
+    top: 2.1vw;
+
+    left: 97.2%;
 }
 
 #izquierda {
     padding-left:10vw;
     width: 40%;
     float:left;
+
 }
 
+.rowcheck{width: 50vw;
+    margin-top: 5vw;
+    margin-left: 25vw;
+    background-color: lavender}
+
+.datos{margin-left: 3vw;}
+
+#textocom{
+    margin-left: -1vw;
+}
 
 footer {
     min-height: 2vw;
@@ -72,6 +205,7 @@ footer img {
 .tablastd {
     text-align:center;
     border: 1px solid black;
+    background-color: #e7e6e6;
 
 }
 
@@ -88,7 +222,8 @@ footer img {
     text-align:center;
     border: 1px solid black;
     padding-bottom: 1vw;
-    padding-top: 1vw;
+    margin-left:1vw;
+    margin-right: 1vw;
     background-color:#dedbda;
 
 }
@@ -98,23 +233,7 @@ footer img {
     font-weight: bolder;
 }
 
-#menu {
-    background-color:#a5c0bb;
-    width:100%;
-    font-size:1.0vw;
-    height: 3.2vw;
-    display: grid;
-    grid-gap:12vw;
-    grid-template-rows: repeat(1,8%);
-    grid-template-columns: repeat(5, 1fr);
-    grid-auto-flow: row dense;
-    justify-items: start;
-    text-align: center;
-    position: fixed;
-    list-style: none;
-    top:0;
 
-}
 
 
 .nav-link{
@@ -138,6 +257,24 @@ footer img {
 
 
 .nav-item{
+
+}
+
+#menu {
+    background-color:#a5c0bb;
+    width:100%;
+    font-size:1.0vw;
+    height: 5vw;
+    display: grid;
+    grid-gap:1vw;
+    grid-template-rows: repeat(2,15%);
+    grid-template-columns: repeat(30, 1fr);
+    grid-auto-flow: row dense;
+    justify-items: start;
+    text-align: center;
+    position: fixed;
+    list-style: none;
+    top:0;
 
 }
 
@@ -166,7 +303,8 @@ ul, ol {
 #menu li ul {
     display:none;
     position:absolute;
-    min-width:10px;
+    min-width:40px;
+    left:0.1vw;
 }
 
 #menu li:hover > ul {
@@ -193,6 +331,10 @@ ul, ol {
     display: inline-block;
 }
 
+#iconomenu {
+    grid-column-start:1;
+    grid-row-start:2; }
+
 
 #imgmenu {
 
@@ -200,6 +342,16 @@ ul, ol {
     width: 2vw;
     padding-top: 1vw;
     padding-left: 1vw;
+}
+
+
+
+.comentarios2 {
+    margin-left:10%;
+}
+
+#comentarioeliminar {
+    width:10%; float:right; margin-right:70%;
 }
 
 #imgbuscar {
@@ -212,13 +364,26 @@ ul, ol {
 
 #imguser {
     width:1.7vw;
+    grid-column-start:6;
+}
+
+#logo {
+    grid-row-start: 1;
+    grid-column: 1/4;
 }
 
 #imglogo {
-    grid-row-start: 1;
-    height: 3vw;
-    width:5vw;
+
+    height: 2vw;
+    width:7vw;
 }
+
+#login {
+    grid-column-start:29;
+    grid-row-start:2;
+}
+
+#carro{  margin-right:1vw; grid-column-start:30; grid-row-start: 2;}
 
 #imgcarro {
 
@@ -226,11 +391,14 @@ ul, ol {
     float: right;
 }
 
+#buscar {
+    grid-column:14/25; grid-row-start: 2;
+}
+
 #searchinput {
     font-size:1.2vw;
     border-radius:10px;
-
-    width:7vw;
+    width:80%;
     margin-top:1vh;
     outline:none;}
 
@@ -253,9 +421,9 @@ ul, ol {
 }
 
 #noticias{
-
+    margin-right:1vw;
     width:100%;
-    margin-top: 5vw;
+    margin-top: 6vw;
     text-align: center;
 }
 
@@ -269,7 +437,22 @@ ul, ol {
     background-color: #a5c0bb;
     text-decoration: none;
     padding: 0.3vw;
-    margin: 1vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    font-size: 0.9vw;
+    color:black;
+    text-align:center;
+    width: 10vw;
+}
+
+
+.btn-primarycomprar{
+
+    background-color: #a5c0bb;
+    text-decoration: none;
+    padding: 0.3vw;
+    margin-left: 8vw;
+    margin-bottom: 2vw;
     font-size: 0.9vw;
     color:black;
     text-align:center;
@@ -312,10 +495,60 @@ ul, ol {
     display: inline-block;
     margin-top:1vw;
     margin-left:3vw;
+    font-size:1.5vw;
     width: 15vw;
 }
 
+.cart-title{
+    width: 100%; height: 4vw;
+    background-color: lavender;
+    text-align: center;
+}
+.col6{
+    margin: 5vw;
+    width: 100%;
+}
+.offset-34{
+    margin-left: 20%;
 
+}
+
+.card-bodycontrasena{
+    width: 50vw;
+    margin-left: 25vw;
+    background-color: lavender;
+    flex: 1 1 auto;
+    min-height: 20vw;
+    padding-top: 1.25vw;
+}
+.card-header2{
+    width: 50vw;
+    margin-left: 25vw;
+    text-align: center;
+}
+.btn-primaryrestablecer{
+    margin-top: 2vw;
+    background-color: #a5c0bb;
+    text-decoration: none;
+    padding: 0.3vw;
+    font-size: 0.9vw;
+    color:black;
+    text-align:center;
+
+}
+
+.list-item{
+    width: 15vw;
+    height: 10vw;
+}
+
+.nombre{margin-left: 5vw;}
+.descrip{margin-left: 5vw}
+
+.disminuir{text-align: right;}
+.cant{text-align: center;}
+.anadir{text-align: left}
+.precio{text-align: center;}
 
 #comprassugeridas {
 
@@ -397,7 +630,7 @@ ul, ol {
 
     margin-left:5vw;
     font-size:2vw;
-    padding-top:1vw;
+    padding-top:5vw;
 
 }
 
@@ -480,7 +713,8 @@ a:hover {
     text-align: center;
 
 }
-.table_info {width: 100%;}
+.table_info {width: 60%; margin-left: 20%;
+    margin-top: 5vw;}
 
 
 /* MEDIA QUERYS */
@@ -491,9 +725,7 @@ a:hover {
 
     body {font-size:1.1vw;}
 
-    #imglogo {
 
-    }
 
     #mapa {
         height:50vw;
@@ -545,13 +777,10 @@ a:hover {
         font-size: 1.5vw;
     }
 
-    .card-body {
 
-        min-height: 27vw;
-    }
 
     #imgmenu {
-        height: 2.2vw;
+        height: 2.3vw;
         width:2.3vw;
     }
 
@@ -559,19 +788,19 @@ a:hover {
     #imgbuscar {
 
 
-        width:2vw;
+        width:1vw;
 
     }
 
 
     #imglogo {
-        height: 3.8vw;
-        width: 4vw;
+        height: 2.8vw;
+
 
     }
     #menu {
-        height: 3.8vw;
-        grid-gap: 5.3vw;
+        height: 6.8vw;
+
 
 
     }
@@ -591,6 +820,11 @@ a:hover {
         height: 15vw;
     }
 
+    #titulo {
+        margin-left: 5vw;
+        font-size: 2vw;
+        padding-top: 8vw;
+    }
 
 }
 
@@ -601,10 +835,7 @@ a:hover {
         margin-left:2vw;
     }
 
-    .form-control {
 
-        margin-left:2vw;
-    }
 
     .titulogrande {
         font-size:3.5vw;
@@ -624,8 +855,8 @@ a:hover {
     }
 
     #imglogo {
-        height: 3.9vw;
-        width:6vw;
+        height: 2.9vw;
+
     }
 
     footer img {
@@ -633,15 +864,14 @@ a:hover {
     }
 
     .form-group {
-        font-size:2vw;
+        font-size:1.2vw;
     }
 
-    .form-control {font-size: 2vw; height: 5vw;}
 
 
     #menu {
-        height: 3.9vw;
-        grid-gap:9vw;
+        height: 5.9vw;
+        grid-template-rows: repeat(2,20%);
         font-size: 1.1vw;
     }
 
@@ -649,10 +879,13 @@ a:hover {
         font-size: 1.6vw;
     }
 
-    .card-body {
 
-        min-height:35vw;
+    #titulo {
+        margin-left: 5vw;
+        font-size: 2vw;
+        padding-top: 12vw;
     }
+
 
     .titulograndemiperfil{
         text-align: center;
@@ -660,9 +893,16 @@ a:hover {
         margin-top: 6.6vw;
     }
 
-    .btn-primaryregistrar {font-size:1.7vw;}
+    .btn-primaryregistrar {font-size:1.2vw;}
 
+    .card {
+        margin-top:15vw;
+        margin-right: 26vw;
+    }
 
+    .cardlogin {
+        margin-left: 26vw;
+    }
 
 }
 
@@ -674,8 +914,8 @@ a:hover {
 
     #imglogo {
 
-        height: 6.2vw;
-        width:8vw;
+        height: 3.9vw;
+        width:11vw;
     }
 
     .titulogrande {
@@ -688,21 +928,26 @@ a:hover {
         height: 3vw;
         width: 3vw;
     }
+    #numcar {
+        top:3.8vw;
+    }
 
-
+    #izquierda {
+        margin-top: 4vw;
+    }
 
     #imgbuscar {
         width:2vw;
     }
 
     #imgcarro {
-        height: 4vw;
-        width: 4vw;
+        height: 2vw;
+        width: 2vw;
     }
 
     #menu {
-        height: 6.2vw;
-        grid-gap:10.5vw;
+        height: 9.2vw;
+
         font-size: 1.3vw;
     }
 
@@ -718,9 +963,7 @@ a:hover {
         font-size:1.8vw;
     }
 
-    .card {
-        margin-top:9vw;
-    }
+
 
     .nav-link {
         padding-top:2vw;
@@ -739,6 +982,9 @@ a:hover {
         margin-bottom:6vw;
     }
 
+
+
+
 }
 
 
@@ -749,22 +995,21 @@ a:hover {
 
     body {font-size:2.2vw;}
 
-    .card-body {
-
-        min-height:58vw;
-    }
 
     .list-group {
         margin-top:14vw; }
 
     #imglogo {
 
-        height: 6.2vw;
-        width:8vw;
+        height: 3.4vw;
+
     }
 
     #imguser {
         width:3vw;
+    }
+    #numcar {
+        left:96.5%;
     }
 
 
@@ -783,11 +1028,11 @@ a:hover {
     .btn-primaryregistrar {
 
         width:20vw;
-        font-size: 2.8vw; }
+        font-size: 1.8vw; }
 
     #menu {
-        height: 6.2vw;
-        grid-gap:8.5vw;
+        height: 9.2vw;
+
         font-size: 1.9vw;
     }
 
@@ -821,8 +1066,11 @@ a:hover {
         outline:none;}
 
 
+    .card {
+        min-height: 52vw;
+    }
 
-
+    .form-group {font-size:1.7vw;}
 
 }
 
@@ -834,13 +1082,25 @@ a:hover {
     body {
         font-size:2.6vw;}
 
+    .btn-primarycomprar {
+        font-size: 2vw;
+        width: 17vw;
+        margin-left: 4vw;
+    }
+
     .titulograndemiperfil{
 
         font-size:5vw;
 
     }
 
+    .address1 {
+        width: 30vw;
+    }
 
+    label {
+        margin-left:4vw;
+    }
 
     #imgnoticiasuno  {
         margin-top:10vw;
@@ -856,6 +1116,10 @@ a:hover {
 
     }
 
+    #menu {
+        height: 11vw;
+    }
+
     .btn-link {
         text-align: center;
 
@@ -863,26 +1127,12 @@ a:hover {
     }
 
 
-
-    #menu {
-        height: 10vw;
-        grid-gap:2.8vw;
-        font-size: 2.8vw;
-    }
-
-    #imgmenu {
-        height:4vw;
-        width:5vw;
-        margin-top:1.5vw;
+    .card {
+        min-height: 65vw;
     }
 
 
 
-
-    #imglogo{
-        height: 9vw;
-        width:11vw;
-    }
     #sobrenosotros {font-size:2.9vw;}
     #sobrenosotros img {width:9vw; margin-bottom: 11vw;}
 
@@ -891,7 +1141,7 @@ a:hover {
 
     #searchinput {
         font-size:2.6vw;
-        width:10vw;
+
         border-radius:60px;
         margin-top:0.7vh;
         outline:none;}
@@ -910,10 +1160,7 @@ a:hover {
         font-size:4.8vw;
     }
 
-    .card {
-        min-height:80vw;
-        margin-top:15vw;
-    }
+
 
     .nav-link {
         padding-top:2vw;
@@ -934,21 +1181,34 @@ a:hover {
     }
 
     .form-group {
-        font-size:3.2vw;
+        font-size:1.8vw;
     }
 
-    .form-control {font-size: 3.2vw; height: 5vw;}
+
 
 }
 
 
 @media (max-width:380px) {
 
+    #menu {
+        height: 15vw; grid-row-gap:3vw;
+    }
 
     .imagenessugeridas {
 
         width: 33vw;
         height: 31vw;
+    }
+
+    .address2 {
+        width: 10vw;
+        margin-left: 2vw;
+    }
+
+    .address3 {
+        width: 10vw;
+        margin-left: 2vw;
     }
 
     #imguser {
@@ -966,10 +1226,7 @@ a:hover {
         padding-bottom:0.1vw;
     }
 
-    .card-body {
 
-        min-height:65vw;
-    }
 
     .btn-primaryregistrar {
         text-align: center;
@@ -989,7 +1246,7 @@ a:hover {
         width:20vw;
         font-size: 3.2vw; }
 
-    .form-control {font-size: 2.9vw; height: 5vw;}
+
 
     .btn-link {
         text-align: center;
@@ -1003,4 +1260,31 @@ a:hover {
 
     #sobrenosotros img {width:9vw; margin-bottom: 25vw;}
 
+    .card {
+        min-height: 95vw;
+        margin-left:20vw;
+
+    }
+
+    #imglogo {
+        height: 6vw;
+        width:18vw;
+    }
+
+    #imgmenu {
+        height: 4vw;
+        width: 4vw;
+    }
+
+    .cardlogin {
+        margin-right: 20vw;
+    }
+
+    .vermas {
+        font-size: 2.9vw;
+    }
+
+    #numcar {
+        top: 50%;
+    }
 }

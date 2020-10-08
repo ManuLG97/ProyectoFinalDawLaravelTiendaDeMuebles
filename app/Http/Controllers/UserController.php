@@ -5,6 +5,8 @@ use App\Producto;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+
 class UserController extends Controller
 {
     /**
@@ -81,20 +83,6 @@ class UserController extends Controller
 
         }
 
-
-        /*
-             $products_admin=Producto::all();
-             $producto=Producto::find($id);
-             $users=User::all();
-
-             $photos= $producto->photos()->get('photo');
-             // dd($photos);
-             if($photos != null){
-                 $total = count($photos);
-             }
-
-             return view('info_product',compact('producto','photos','total','users','products_admin'));
-        */
     }
     /**
      * Show the form for editing the specified resource.
@@ -131,11 +119,11 @@ class UserController extends Controller
         $role=$user_info->hasRole("admin");
         if($role){
             $users = User::find($id);
+
             $users->update(['name' => $request->name,
                 'telefon' => $request->telefon,
                 'address' => $request->address,
                 'email' => $request->email,
-                // 'password' => bcrypt($request->password),
                 'password' => Hash::make($request->password),
 
             ]);
@@ -143,11 +131,11 @@ class UserController extends Controller
             return redirect()->route('admin/admin_home');
         }else{
             $users = User::find($id);
+
             $users->update(['name' => $request->name,
                 'telefon' => $request->telefon,
                 'address' => $request->address,
                 'email' => $request->email,
-                //   'password' => bcrypt($request->password),
                 'password' =>Hash::make($request->password),
 
             ]);
@@ -160,19 +148,6 @@ class UserController extends Controller
 
     public function ofertas()
     {
-      /*  $usuario=auth()->user()->id;
-        $user_info=User::find($usuario);
-
-        $role=$user_info->hasRole("admin");
-        if($role){
-            $users=User::all();
-            return view('admin.ofertas',compact('users','usuario'));
-        }else{
-            $users=User::all();
-
-        }
-        return view('ofertas',compact('users','usuario'));*/
-
         return view('ofertas');
     }
 
@@ -293,8 +268,47 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
+    //eliminar productos del carrito
     public function destroy($id)
     {
-        //
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new \App\Cart($oldCart);
+        $cart->removeItem($id);
+
+
+        Session::put('cart', $cart);
+       // return redirect()->route('shop.shopping-cart');
+
+        // return redirect()->back();
+        return view('shop.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
+
+
+
+  /*  public function destroy(Request $request,$id)
+    {
+        $product = Producto::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+
+
+           $cart = new \App\Cart($oldCart);
+            $cart->remove($product, $product->id);
+            $request->session()->put('cart', $cart);
+
+            $oldCart = Session::get('cart');
+            $cart = new \App\Cart($oldCart);
+
+
+            $cart = Session::get('cart');
+            //  unset($cart->items['qty']);
+
+      //      unset($cart->items[$id]);
+
+
+        Session::put('cart', $cart);
+        // return redirect()->back();
+        return view('shop.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+    } */
 }

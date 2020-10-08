@@ -5,6 +5,21 @@
     <div class="col-lg-12">
 
         <h1 class="my-5">Crear producto</h1>
+        <p>Todos los campos son obligatorios</p>
+
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <h6>Por favor corrige las siguientes errores: </h6>
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+
+
         <form class="form-propertie centrar" action="{{route('producto.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
@@ -69,7 +84,7 @@
             <label for="photo">Imagenes</label>
             <input type="file" name="photo[]" multiple>
             <br/>
-            <input  type="submit" class="btn btn-primaryregistrar" value="Guardar Cambios">
+            <input  type="submit" class="btn btn-primaryregistrar" value="Guardar">
             <br/>
         </form>
         <br/>

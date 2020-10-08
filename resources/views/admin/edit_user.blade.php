@@ -22,23 +22,23 @@
             @csrf
             @method('PUT')
             <label for="name">  Nombre: </label>
-            <input class="edit-user" type="text" name="name" value="{{$user->name}}">
+            <input class="edit-user" type="text" name="name" value="{{$user->name}}"  required oninvalid="this.setCustomValidity('Por favor rellene este campo')" oninput="setCustomValidity('')">
             <br/><br/>
 
             <label for="telefon">  Telefono: </label>
-            <input class="edit-user" type="text" name="telefon" value="{{$user->telefon}}">
+            <input class="edit-user" type="text" name="telefon" value="{{$user->telefon}}"  required  oninvalid="this.setCustomValidity('Por favor rellene este campo')" oninput="setCustomValidity('')">
             <br/><br/>
 
             <label for="address">  Dirección: </label>
-            <input class="edit-user" type="text" name="address" value="{{$user->address}}">
+            <input class="edit-user" type="text" name="address" value="{{$user->address}}"  required  oninvalid="this.setCustomValidity('Por favor rellene este campo')" oninput="setCustomValidity('')">
             <br/><br/>
 
             <label for="email">  Email: </label>
-            <input class="edit-user" type="text" name="email" value="{{$user->email}}">
+            <input class="edit-user" type="text" name="email" value="{{$user->email}}"  required oninvalid="this.setCustomValidity('Por favor rellene este campo')" oninput="setCustomValidity('')">
             <br/><br/>
 
             <label for="password">   Nueva contraseña: </label>
-            <input class="edit-user" type="password" name="password">
+            <input class="edit-user" type="password" name="password" required  oninvalid="this.setCustomValidity('Por favor rellene este campo')" oninput="setCustomValidity('')">
             <br/><br/>
 
 

@@ -47,18 +47,18 @@
 
 
     </div>
-    <div>
+    <div id="logo">
         <li>
             <a href="{{ url('/') }}"><img src="/imagenes/logo.png" id="imglogo"  alt="logo de la pagina web"  /></a>
         </li>
     </div>
 
-        <!--SEARCH FORM --->
-    <div>
+    <!--SEARCH FORM --->
+    <div id="buscar">
         <form  role="search" action="{{url('search')}}">
 
-                <input type="search" id="searchinput" name='search' placeholder="Buscar" />
-                <button type="submit" class="btn btn-default"><img  id="imgbuscar" src="/imagenes/iconos/lupa.png"></button>
+            <input type="search" id="searchinput" name='search' placeholder="Buscar" />
+            <button type="submit" class="btn btn-default"><img  id="imgbuscar" src="/imagenes/iconos/lupa.png"></button>
 
 
         </form>
@@ -68,8 +68,7 @@
 
 
 
-    <div>
-
+    <div id="login">
     <!---  <a class="nav-link" href="{{ route('login') }}"><img src="imagenes/iconos/perfil2.png" id="imguser" alt="Icono de usuario" /></a> --->
         @guest
 
@@ -110,7 +109,7 @@
     </div>
 
 
-    <div> <a class="nav-link" href="{{ route('product.shoppingCart')}}"><img src="/imagenes/iconos/carrito.png" id="imgcarro" alt="Icono del carrito" /><span class="badge">{{\Illuminate\Support\Facades\Session::has('cart') ? \Illuminate\Support\Facades\Session::get('cart')->totalQty:''}}</span></a></div>
+    <div id="carro"> <a class="nav-link" href="{{ route('product.shoppingCart')}}"><img src="/imagenes/iconos/carrito.png" id="imgcarro" alt="Icono del carrito" /><span id="numcar" >{{\Illuminate\Support\Facades\Session::has('cart') ? \Illuminate\Support\Facades\Session::get('cart')->totalQty:''}}</span></a></div>
 
 
 </div>

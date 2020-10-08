@@ -13,19 +13,19 @@
 
 
     <div id="comprassugeridas">
-        <div id="titulo"> <strong>Ofertas</strong> </div>
+        <div id="titulo"> <strong>Ofertas</strong><a class="vermas" href="{{ url('ofertas') }}"> <div class="vermas"> Ver mas ... </div></a>
+        </div>
         <div>
             @php
-                $products=\App\Producto::first()->take(4)->get();
+                $products=\App\Producto::first()->take(5)->get();
             @endphp
             @foreach($products as $product)
                 @if($product->oferta == "1")
                 <div class="oferta">
-                    <a href="{{route('home.show',$product->id)}}"><img class="imagenessugeridas centrar" src="{{asset('storage/'.$product->foto)}}" alt="Foto mueble con el nombre: {{$product->nombre_producto}}"/> <br> <p class="centrar">{{$product->nombre_producto}}</p></a>
+                    <a href="{{route('home.show',$product->id)}}"><img class="imagenessugeridas centrar" src="{{asset('storage/'.$product->foto)}}" alt="Foto mueble con el nombre: {{$product->nombre_producto}}"/> <br> <p class="centrar">{{$product->nombre_producto}}<br><strong>{{$product->price}} €</strong></p></a>
                 </div>
                 @endif
             @endforeach
-            <a class="vermas" href="{{ url('ofertas') }}"> <div class="vermas"> Ver mas ... </div></a>
 
         </div>
 
@@ -34,18 +34,18 @@
 
 
     <div id="comprassugeridas">
-        <div id="titulo"> <strong>Novedades</strong> </div>
+        <div id="titulo"> <strong>Novedades</strong> <a class="vermas" href="{{ url('novedades') }}"> <div class="vermas"> Ver mas ... </div></a>
+        </div>
         <div>
             @php
-                $products=\App\Producto::latest()->take(3)->get();
+                $products=\App\Producto::latest()->take(4)->get();
             @endphp
             @foreach($products as $product)
                 <div class="oferta">
-                    <a href="{{route('home.show',$product->id)}}"><img class="imagenessugeridas centrar" src="{{asset('storage/'.$product->foto)}}" alt="Foto mueble con el nombre: {{$product->nombre_producto}}"/> <br> <p class="centrar">{{$product->nombre_producto}}</p></a>
+                    <a href="{{route('home.show',$product->id)}}"><img class="imagenessugeridas centrar" src="{{asset('storage/'.$product->foto)}}" alt="Foto mueble con el nombre: {{$product->nombre_producto}}"/> <br> <p class="centrar">{{$product->nombre_producto}}<br><strong>{{$product->price}} €</strong></p></a>
                 </div>
 
             @endforeach
-            <a class="vermas" href="{{ url('novedades') }}"> <div class="vermas"> Ver mas ... </div></a>
 
         </div>
 

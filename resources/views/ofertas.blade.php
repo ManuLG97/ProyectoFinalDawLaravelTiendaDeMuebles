@@ -9,10 +9,10 @@
                 $products=\App\Producto::first()->take(9)->get();
             @endphp
             @foreach($products as $product)
-                @if($product->oferta == "1");
+                @if($product->oferta == "1")
                 <div class="oferta">
                     <a href="{{route('home.show',$product->id)}}"><img class="imagenessugeridas centrar" src="{{asset('storage/'.$product->foto)}}" alt="Foto mueble con el nombre: {{$product->nombre_producto}}"/>
-                        <br> <p class="centrar">{{$product->nombre_producto}} <br>({{$product->price}} €)</p></a>
+                        <br> <p class="centrar">{{$product->nombre_producto}} <br><strong>{{$product->price}} €</strong></p></a>
 
                 </div>
                 @endif

@@ -4,8 +4,41 @@
 
     <div id="contenedor">
         <div id="izquierda">
+            <h2 class="titulogandreinformacion"><strong>Información producto</strong></h2><br/>
+            @csrf
+
+            @csrf
+            @method('PUT')
+            <table>
+                <thead>
+
+                <tr>
+                    <td class="textoizquierda">
+                        <strong>Nombre:   </strong> {{$producto->nombre_producto}}
+                        <br/> <strong>Marca:   </strong> {{$producto->marca}}
+                        <br/> <strong>Tipo mueble:   </strong> {{$producto->tipo_mueble}}
+                        <br/> <strong>Descripción:   </strong> {{$producto->descripcion}}
+                        <br/> <strong>Dimensiones:   </strong> {{$producto->dimensiones}}
+                        <br/> <strong>Volum:   </strong> {{$producto->volum}}
+                        <br/> <strong>Precio:   </strong> {{$producto->price}} €
+                        <br/> <strong>Precio con montaje:   </strong> {{$producto->precio_con_montaje}} €
+
+                    </td>
+                </tr>
+
+                </thead>
+            </table>
+            <a href="{{route('product.addToCart',['id'=>$producto->id])}}"><button type="submit" class="btn-primaryregistrar">Añadir a la cesta</button><br></a>
+
+
+        </div>
+
+        <div id="derecha">
 
             <section class="product_style">
+                @php
+
+                        @endphp
                 @if($photos)
                     <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-ride="carousel">
                         <div class="carousel-inner">
@@ -47,36 +80,38 @@
 
                     </div>
         </div>
-        <div id="derecha">
-            <h1 class="titulogandreinformacion"><strong>Información producto</strong></h1><br/>
-            @csrf
 
-            @csrf
-            @method('PUT')
-            <table class="table_info">
-                <thead>
-
-                <tr>
-                    <td class="textoizquierda">
-                        <strong>Nombre:   </strong> {{$producto->nombre_producto}}
-                        <br/> <strong>Marca:   </strong> {{$producto->marca}}
-                        <br/> <strong>Tipo mueble:   </strong> {{$producto->tipo_mueble}}
-                        <br/> <strong>Descripción:   </strong> {{$producto->descripcion}}
-                        <br/> <strong>Dimensiones:   </strong> {{$producto->dimensiones}}
-                        <br/> <strong>Volum:   </strong> {{$producto->volum}}
-                        <br/> <strong>Precio:   </strong> {{$producto->price}} €
-                        <br/> <strong>Precio con montaje:   </strong> {{$producto->precio_con_montaje}} €
-
-                    </td>
-                </tr>
-
-                </thead>
-            </table>
-                <a href="{{route('product.addToCart',['id'=>$producto->id])}}"><button type="submit" class="btn-primaryregistrar">Añadir a la cesta</button><br></a>
-
-
-        </div>
         <br/>  <br/>
     </div>
     </div>
+
+
+
+    <div class="comentarios2">
+            @if(\Illuminate\Support\Facades\Auth::guest())
+                Porvafor inicia sesion para comentar.
+            @else
+                <div class="comentarios">
+                    <br><h3><strong>Comentarios</strong></h3>
+                    <button class="btn-primaryregistrar"> <a href="{{route('comments.show',$producto->id)}}">Ver todos los comentarios</a></button>
+                </div>
+
+                {{--- <form action="{{route('create_comment_path',['post'=>$producto->id])}}" method="post">--}}
+                <br><form action="{{route('comments.store',['id'=>$producto->id])}}" method="post">
+                    @csrf
+                    @method('POST')
+                    <div class="form-group">
+                        <label for="comment">Comentario: </label><br>
+
+                        <textarea rows="5" name="comment"  class="form-control" required oninvalid="this.setCustomValidity('Por favor rellene este campo')" oninput="setCustomValidity('')"></textarea>
+                        <input class="edit-user" type="hidden" name="product_id" value="{{$producto->id}}">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn-primaryregistrar">Publicar comentario</button>
+                    </div>
+                </form>
+            @endif
+        </div>
+
 @endsection

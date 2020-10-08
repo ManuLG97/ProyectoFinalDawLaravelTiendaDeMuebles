@@ -9,16 +9,20 @@
 
     <title>ModernForniture</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Scripts
+    <script src="{{ asset('js/app.js') }}" defer></script> -->
+    <script src="/js/app.js" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
+    <!-- Styles
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/apphome.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/apphome.css') }}" rel="stylesheet"> -->
+    <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/apphome.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -32,7 +36,7 @@
                 <li><a href="{{ url('admin_novedades') }}">Novedades</a></li>
                 <li><a href="{{ url('admin_armarios') }}">Armarios</a></li>
                 <li><a href="{{ url('admin_librerias') }}">Librerias</a></li>
-                <li><a href="{{ url('admine_stanterias') }}">Estanterias</a></li>
+                <li><a href="{{ url('admin_estanterias') }}">Estanterias</a></li>
                 <li><a href="{{ url('admin_escritorios') }}">Escritorios</a></li>
                 <li><a href="{{ url('admin_comodas') }}">Comodas</a></li>
                 <li><a href="{{ url('admin_mesas') }}">Mesas</a></li>
@@ -47,7 +51,7 @@
 
 
     </div>
-    <div>
+    <div id="logo">
         <li>
             <a href="{{ url('admin/admin_home') }}"><img src="/imagenes/logo.png" id="imglogo"  alt="logo de la pagina web"  /></a>
         </li>
@@ -55,8 +59,8 @@
 
 
     <!--SEARCH FORM --->
-    <div>
-        <form  role="search" action="{{url('search')}}">
+    <div id="buscar">
+        <form  role="search" action="{{url('admin_search')}}">
 
             <input type="search" id="searchinput" name='search' placeholder="Buscar" />
             <button type="submit" class="btn btn-default"><img  id="imgbuscar" src="/imagenes/iconos/lupa.png"></button>
@@ -71,7 +75,7 @@
 
 
 
-    <div>
+    <div id="login">
 
     <!---  <a class="nav-link" href="{{ route('login') }}"><img src="imagenes/iconos/perfil2.png" id="imguser" alt="Icono de usuario" /></a> --->
         @guest
@@ -94,18 +98,18 @@
                                 {{ __('Mi perfil') }}
                             </a>
 
-                                <a class="dropdown-item"  href="{{route('producto.create')}}">
+                            <a class="dropdown-item"  href="{{route('producto.create')}}">
                                 {{ __('Crear producto') }}
                             </a>
 
 
-                                <a class="dropdown-item" href="{{url('products_admin')}}">
-                                    {{ __('Ver productos') }}
-                                </a>
+                            <a class="dropdown-item" href="{{url('products_admin')}}">
+                                {{ __('Ver productos') }}
+                            </a>
 
 
 
-                                <a class="dropdown-item" href="{{ route('admin.users') }}">
+                            <a class="dropdown-item" href="{{ route('admin.users') }}">
                                 {{ __('Ver usuarios') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
@@ -126,7 +130,7 @@
     </div>
 
 
-    <div> <img src="/imagenes/iconos/carrito.png" id="imgcarro" alt="Icono del carrito" /></div>
+    <div id="carro"> <img src="/imagenes/iconos/carrito.png" id="imgcarro" alt="Icono del carrito" /></div>
 
 
 </div>

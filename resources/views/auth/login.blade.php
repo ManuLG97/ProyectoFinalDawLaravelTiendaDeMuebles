@@ -2,19 +2,30 @@
 
 @section('content')
     <div>
-        <div class="card">
+        <div class="card cardlogin">
             <div class="card-header">{{ __('Iniciar sesión') }}<img src="imagenes/unnamed.png" id="boli" alt=""/>
             </div>
 
             <div class="card-body">
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <h6>Por favor corrige las siguientes errores: </h6>
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
+
 
                     <div class="form-group row">
                         <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo electrónico') }}</label>
 
                         <div class="col-md-6">
-                            <input id="email type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <input id="email type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required oninvalid="this.setCustomValidity('Por favor rellene este campo')" oninput="setCustomValidity('')">
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -29,7 +40,7 @@
                         <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
 
                         <div class="col-md-6">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required oninvalid="this.setCustomValidity('Por favor rellene este campo')" oninput="setCustomValidity('')">
 
                             @error('password')
                             <span class="invalid-feedback" role="alert">
@@ -59,9 +70,9 @@
                                     <br>
                                 @endif
                                 @if (Route::has('register'))
-
-                                    <a class="btn-primaryregistrar" href="{{ route('register') }}">{{ __('Crear cuenta') }}</a>
-
+                                    <button class="btn-primaryregistrar">
+                                        <a href="{{ route('register') }}">{{ __('Crear cuenta') }}</a>
+                                    </button><br>
                                 @endif
                             </div>
                         </div>

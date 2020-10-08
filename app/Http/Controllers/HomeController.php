@@ -38,8 +38,6 @@ class HomeController extends Controller
         }
         return view('user.user_home',compact('home'));
     }
-       //  return view('home');
-       //  return view('home',compact('home'));
 
 
 

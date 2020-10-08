@@ -19,6 +19,19 @@ class CartController extends Controller
         return view('shop.shopping-cart')->with('product', $product);
     }
 
+    public function show($id)
+    {
+
+        $products=Producto::all();
+        $product=Producto::find($id);
+        $users=User::all();
+
+
+        return view('shop.shopping-cart',compact('product','products','users'));
+
+    }
+
+
     public function getAddToCart(Request $request, $id)
     {
         $product = Producto::find($id);
@@ -28,6 +41,17 @@ class CartController extends Controller
 
         $request->session()->put('cart', $cart);
         return redirect()->back();
+    }
+
+    public function getAddToCartProduct(Request $request, $id)
+    {
+        $product = Producto::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new \App\Cart($oldCart);
+        $cart->add($product, $product->id);
+
+        $request->session()->put('cart', $cart);
+        return view('shop.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
 
     public function getCart()
@@ -76,16 +100,33 @@ class CartController extends Controller
 
     }
 
-    public function destroy($id)
+//disminuir producto del carrito
+    public function destroy(Request $request, $id)
     {
-        $cart = Session::get('cart');
-        unset($cart->items[$id]);
-        Session::put('cart', $cart);
-        return redirect()->back();
+        $product = Producto::find($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
 
-        //$product = Producto::find($id);
-        // \App\Cart::remove($product);
-        // return redirect()->back();
+
+        $cart = new \App\Cart($oldCart);
+        $cart->remove($product, $product->id);
+        $request->session()->put('cart', $cart);
+
+        $oldCart = Session::get('cart');
+        $cart = new \App\Cart($oldCart);
+
+        return view('shop.shopping-cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+
+    }
+
+    public function removeAllItems(Request $request)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new \App\Cart($oldCart);
+
+        $request->session()->remove('cart', $cart);
+
+
+        return view('/home');
     }
 
 }
